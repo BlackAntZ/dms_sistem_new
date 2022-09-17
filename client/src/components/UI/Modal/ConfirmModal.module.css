@@ -1,0 +1,23 @@
+.modal {
+  background-color: white;
+  position: absolute;
+  width: 50%;
+  min-height: fit-content;
+  top: 5%;
+  left: 25%;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.modal h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 1rem;
+}
+
+.buttons-div {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

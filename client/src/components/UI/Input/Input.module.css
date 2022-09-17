@@ -1,0 +1,44 @@
+.div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  margin: 0 10% 1rem;
+}
+
+.div input {
+  width: 100%;
+  border-radius: var(--border-radius-small);
+  border: 1px solid var(--color-gray-300);
+  padding: 0.3rem 0.2rem;
+  font-size: 1rem;
+}
+
+.div label {
+  margin-bottom: 0.2rem;
+}
+
+.y-circle {
+  color: green;
+  font-size: 1.2rem;
+  position: absolute;
+  right: 0.5rem;
+  top: 2.3rem;
+}
+
+.x-circle {
+  color: rgb(121, 26, 26);
+  font-size: 1.2rem;
+  position: absolute;
+  right: 0.5rem;
+  top: 2.3rem;
+}
+
+.error-div {
+  color:rgb(121, 26, 26);
+  position: absolute;
+  top: 3.3rem;
+  left: 0;
+  font-size: 0.8rem;
+}

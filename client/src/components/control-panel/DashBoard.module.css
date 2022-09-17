@@ -1,0 +1,288 @@
+.container {
+  margin: 2rem;
+}
+
+.box_shadow{
+  box-shadow: rgb(149 157 165 / 20%) 0 8px 24px;
+  padding: 10px;
+}
+
+.top_section{
+  display: flex;
+    gap: 2rem;
+}
+
+.odjeljenja{
+  position: relative;
+}
+
+.odjeljenja li i{
+  padding: 5px;
+}
+
+#myUL {
+  margin: 0;
+  padding: 0;
+}
+
+.caret {
+  cursor: pointer;
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  transform: rotate(90deg);
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.logged_user{
+  margin-right: 6rem;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-weight: bold;
+}
+
+.add_new_tag{
+  position: relative;
+}
+
+.add_new_tag .add_tag{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
+  background: #0099ff;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  transition: all .2s ease;
+}
+
+.add_new_tag .add_tag:hover{
+  transform: scale(1.1);
+}
+
+.add_new_tag .add_tag i{
+  position: relative;
+  cursor: pointer;
+  color: #fff;
+}
+
+.add_new_tag .add_tag:before{
+  content: '+';
+  position: absolute;
+  right: 1px;
+  top: -2px;
+  font-weight: bold;
+  color: #fff;
+  font-size: 10px;
+}
+
+.tag_list{
+  position: relative;
+  width: 45%;
+  scroll-behavior: smooth;
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.tag_list .bx-home{
+  margin-left: 9px;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.odjeljenja:before{
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: calc(100% - 40px);
+  background: #ccc;
+  left: 7px;
+  top: 30px;
+}
+
+.odjeljenja li:first-child{
+  margin-left: 0;
+  position: relative;
+}
+
+.odjeljenja li{
+  position: relative;
+  margin-left: 30px;
+}
+
+.odjeljenja li::before{
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 15px;
+  background: #ccc;
+  left: -20px;
+  top: 12px;
+}
+
+.odjeljenja li:first-child::before{
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 0;
+  background: #ccc;
+  left: -20px;
+  top: 12px;
+}
+
+.pododjeljenja{
+  margin-left: 20px;
+}
+
+.pododjeljenja:before{
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: calc(100% - 60px);
+  background: #ccc;
+  left: 27px;
+  top: 50px;;
+}
+
+.pododjeljenja li:first-child{
+  margin-left: 0;
+  position: relative;
+}
+
+.pododjeljenja li{
+  position: relative;
+  margin-left: 30px;
+}
+
+.pododjeljenja li::before{
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 15px;
+  background: #ccc;
+  left: -20px;
+  top: 12px;
+}
+
+.pododjeljenja li:first-child::before{
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 0;
+  background: #ccc;
+  left: -20px;
+  top: 12px;
+}
+
+/* Recent used icons */
+.recent_used{
+  display: flex;
+  gap: 10px;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  height: 230px;
+}
+
+.recent_buttons{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.recent_buttons button{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.recent_used .config{
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.recent_used .config:hover{
+  transform: scale(1.1);
+}
+
+.recent_used button i{
+  font-size: 30px;
+  color: #fff;
+}
+
+.date_picker{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.date_picker button{
+  float: right;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 1rem;
+}
+
+.date_picker button i{
+  font-size: 20px;
+}
+
+/* Recent used icons end */
+
+/* Tasks */
+.task_preview{
+  display: flex;
+  gap: 10px;
+}
+
+.tasks{
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  padding: 5px;
+  color: #fff;
+  border-radius: 2px;
+  width: 33%;
+}
+
+.all{
+  background: #42A5F5;
+}
+
+.done{
+  background: #66BB6A;
+}
+
+.undone{
+  background: #EF5350;
+}
+/* Tasks end */

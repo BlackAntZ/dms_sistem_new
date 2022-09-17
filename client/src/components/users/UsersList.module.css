@@ -1,0 +1,83 @@
+.users-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  color: var(--color-gray-500);
+  min-height: fit-content;
+  overflow-y: scroll;
+  border-bottom: 2px solid var(--color-gray-100);
+}
+
+.users-list::-webkit-scrollbar {
+  width: var(--space-2);
+}
+
+.users-list::-webkit-scrollbar-track {
+  border-radius: 100vw;
+  margin-top: 2.5rem;
+}
+
+.users-list::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 100vw;
+}
+
+.users-list:hover::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-200);
+}
+
+.users-list li {
+  padding: var(--space-2) var(--space-2);
+  padding-right: 0;
+  margin: var(--space-1) 0;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(5,1fr);
+  border-radius: var(--border-radius-medium);
+}
+
+.users-list li:hover {
+  background-color: var(--color-gray-100);
+}
+
+.users-list li > div {
+  text-align: center;
+}
+
+.users-list > li:first-of-type > div {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.users-list > li:first-of-type > div > div {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin-left: var(--space-2);
+}
+
+.users-list .normal__arrow {
+  font-size: var(--space-2);
+  color: var(--color-gray-200);
+}
+
+.users-list li:first-of-type {
+  border-bottom: 2px solid var(--color-gray-100);
+  border-radius: unset;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+}
+
+main > button:last-of-type {
+  position: absolute;
+  bottom: -3rem;
+  right: 5rem;
+}
+
+.users-list .arrow__selected {
+  font-size: var(--space-3);
+  color: var(--color-gray-500);
+}

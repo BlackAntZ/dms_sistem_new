@@ -1,0 +1,55 @@
+.modal {
+  background-color: white;
+  position: absolute;
+  width: 50%;
+  height: fit-content;
+  z-index: 3;
+  top: 5%;
+  left: 25%;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.buttons-div {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.position-relative {
+  position: relative;
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--border-radius-medium);
+  width: 80%;
+  height: 3rem;
+  margin: 1.5rem auto 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.5rem;
+  cursor: pointer;
+}
+
+.position-relative:hover {
+  background-color: var(--color-primary-50);
+}
+
+.position-relative:hover .label-div {
+  background-color: var(--color-primary-50);
+}
+
+.position-relative > i {
+  font-size: 1.3rem;
+}
+
+.label-div {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  left: 50%;
+  translate: -50% -50%;
+  background-color: white;
+  width: 20%;
+  border-radius: var(--border-radius-small);
+}

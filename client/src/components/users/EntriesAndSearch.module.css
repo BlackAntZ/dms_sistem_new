@@ -1,0 +1,73 @@
+.entries-div {
+  margin: 1rem 1rem 0.5rem;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.entries-div select {
+  font-size: 1.2rem;
+  border-color: var(--color-gray-200);
+  background-color: transparent;
+  border-radius: var(--border-radius-small);
+}
+
+.tags-div {
+  font-size: 1.2rem;
+  border: 2px solid var(--color-gray-200);
+  background-color: transparent;
+  border-radius: var(--border-radius-small);
+  padding: 0.2rem 0.5rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  min-width: 12rem;
+}
+
+.tags-div > i {
+  margin-left: auto;
+}
+
+.tags-container {
+  position: absolute;
+  top: 2rem;
+  left: -2px;
+  width: calc(100% + 4px);
+  max-height: 10rem;
+  overflow-y: scroll;
+  background-color: var(--color-gray-50);
+  z-index: 2;
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--border-radius-small);
+  padding: 0.2rem 0.2rem;
+}
+
+.tags-container::-webkit-scrollbar {
+  width: 0.3rem;
+  background-color: transparent;
+}
+
+.tags-container::-webkit-scrollbar-track {
+  border-radius: 100vw;
+}
+
+.tags-container::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 100vw;
+}
+
+.tags-container:hover::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-200);
+}
+
+.tags-container > div {
+  padding: 0.2rem 0.3rem;
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+}
+
+.tags-container > div:hover {
+  background-color: var(--color-gray-100);
+}
