@@ -31,7 +31,7 @@ function App() {
     return await res.json();
   }
 
-  //Function for sorting the table when the sort term is inputted
+  //Function for sorting the table when the sort term inputted
   const filterListBySearchTerm = useCallback((array) => {
     const regexp = new RegExp(searchTerm, 'gi');
     return array.filter(user => {
@@ -40,7 +40,7 @@ function App() {
     });
   },[searchTerm]);
 
-  //Display the statistics of the presently displayed users - done
+  //Display the statistics of the presently displayed users—done
   const shownUsersStatistics = useCallback((array, entries) => {
     const transformedData = [];
     transformedData[0] = `${entries * (selectedPage - 1) + 1}`;
@@ -49,7 +49,7 @@ function App() {
     setStatistics(transformedData);
   },[selectedPage]);
 
-  //Fill the table with users and sort if the sort term was inputted
+  //Fill the table with users and sort if the sort term inputted.
   const fillUsersData = useCallback((array, data) => {
     let list;
     (data.searchTerm  ? data.searchTerm : searchTerm.length) === 0 ? list = array : list = filterListBySearchTerm(array);

@@ -1,6 +1,6 @@
 const express = require('express');
 
-const protectRoutesMiddleware = require('./middlewares/protect-routes');
+// const protectRoutesMiddleware = require('./middlewares/protect-routes');
 const db = require('./data/data');
 const authRoutes = require('./routes/auth.routes');
 const mainRoutes = require('./routes/main-routes');
