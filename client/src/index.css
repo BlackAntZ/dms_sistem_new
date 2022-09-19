@@ -47,6 +47,7 @@ html {
   --color-primary-900: #14213D;
 
   --color-error-100: rgb(255, 192, 180);
+  --color-error-300: rgb(246, 135, 114);
   --color-error-500: rgb(199, 51, 15);
 
   --space-1: 0.25rem;
@@ -107,7 +108,8 @@ a {
   height: 100%;
   top: 0;
   left: 0;
-  background: linear-gradient(rgba(30, 30, 30, 0.8), rgba(30,30,30,0.9));
+  background: linear-gradient(rgba(30, 30, 30, 0.2), rgba(30,30,30,0.3));
+  backdrop-filter: blur(5px);
   z-index: 2;
 }
 

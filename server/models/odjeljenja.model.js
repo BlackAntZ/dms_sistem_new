@@ -13,6 +13,22 @@ class Odjeljenje {
     return result;
   }
 
+  async existsAlready() {
+    const [result] = await db.getDb().query('select * from odjeljenja where naziv = (?)', this.naziv);
+    return result.length;
+  }
+
+  async dodajNovoOdjeljenje() {
+    const data = [
+      this.parent,
+      this.child,
+      this.naziv,
+      this.boja,
+    ];
+
+    await db.getDb().query('insert into odjeljenja (parent, child, naziv, boja) values (?)', [data]);
+  }
+
 }
 
 module.exports = Odjeljenje;

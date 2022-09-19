@@ -1,5 +1,6 @@
 import classes from "./DashBoard.module.css";
 import {useCallback, useEffect, useState} from "react";
+import AddNewTagModal from "../UI/Modal/AddNewTagModal";
 
 const DashBoard = () => {
   const [odjeljenja, setOdjeljenja] = useState([]);
@@ -99,21 +100,25 @@ const DashBoard = () => {
   //   }
   // });
 
-  const openTagModalHanlder = () => {
+  const openTagModalHandler = () => {
     setOpenTagModal(true);
+  }
+
+  const closeTagModalHandler = () => {
+    setOpenTagModal(false);
   }
 
   return (
     <>
+      {openTagModal && <AddNewTagModal closeModal={closeTagModalHandler}></AddNewTagModal>}
       <div className={classes['logged_user']}>
         <span>Aktivni korisnik</span>
       </div>
-
       <div className={classes['container']}>
         <div className={classes['top_section']}>
           <div className={`${classes['tag_list']} ${classes['box_shadow']}`}>
             <div className={classes['add_new_tag']}>
-              <button onClick={openTagModalHanlder} id="add_tag" className={classes['add_tag']}><i className='bx bxs-purchase-tag'></i></button>
+              <button onClick={openTagModalHandler} id="add_tag" className={classes['add_tag']}><i className='bx bxs-purchase-tag'></i></button>
             </div>
             <ul className={classes.odjeljenja}>
               <li>
@@ -121,7 +126,7 @@ const DashBoard = () => {
               </li>
             </ul>
             <ul className={classes['tree']}>
-              {odjeljenja.map(odjeljenje => {return <li><i className="fa-solid fa-tags"></i>${odjeljenje.naziv}</li>})}
+              {odjeljenja && odjeljenja.map(odjeljenje => {return <li key={odjeljenje.id}><i className="fa-solid fa-tags"></i>{odjeljenje.naziv}</li>})}
             </ul>
           </div>
 

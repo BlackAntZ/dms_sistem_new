@@ -6,4 +6,6 @@ const router = express.Router();
 
 router.get('/users', adminController.getAllUsers);
 
+router.post('/tag', adminController.postNewTag)
+
 module.exports = router;

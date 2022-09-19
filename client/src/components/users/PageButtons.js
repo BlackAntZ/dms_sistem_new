@@ -1,5 +1,5 @@
 import classes from "./PageButtons.module.css";
-import {useEffect, useRef, useState} from "react";
+import {useRef} from "react";
 
 const PageButtons = props => {
   const divOfTablePageNumbers = useRef();

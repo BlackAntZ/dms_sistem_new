@@ -1,3 +1,6 @@
+const Odjeljenja = require("../models/odjeljenja.model");
+const tagValidation = require('../util/tag.validation');
+
 function getAllUsers(req, res, next) {
   try {
     res.json({users: [{id: '1', name: 'Dejan', last_name:'Bajic', email: 'dejanbajich@gmail.com', odjeljenja: [{id:'6', boja:'#25D366', trajanje: '10/10/2022'}]},
@@ -34,6 +37,37 @@ function getAllUsers(req, res, next) {
   }
 }
 
+const postNewTag = async (req, res, next) => {
+  if (!tagValidation.tagDetailsAreValid(
+      req.body.parent,
+      req.body.child,
+      req.body.naziv,
+      req.body.boja
+    )) {
+    console.log('Data not valid');
+  }
+
+  const odjeljenje = new Odjeljenja(
+    req.body.parent,
+    req.body.child,
+    req.body.naziv,
+    req.body.boja
+  );
+  try {
+    const existsAlready = await odjeljenje.existsAlready();
+
+    if (existsAlready > 0) {
+      res.json('Odjeljenje postoji');
+      return;
+    }
+    await odjeljenje.dodajNovoOdjeljenje();
+    res.json('Uspjesno dodano');
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   getAllUsers: getAllUsers,
+  postNewTag: postNewTag
 }
