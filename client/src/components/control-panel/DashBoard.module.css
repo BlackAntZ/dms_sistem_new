@@ -1,5 +1,17 @@
 .container {
-  margin: 2rem;
+  margin: 2rem 0 2rem 7rem;
+}
+
+.btn-primary {
+  background: #42A5F5;
+  color: #fff;
+  padding: 5px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all .2s ease;
 }
 
 .box_shadow{
@@ -10,14 +22,6 @@
 .top_section{
   display: flex;
     gap: 2rem;
-}
-
-.odjeljenja{
-  position: relative;
-}
-
-.odjeljenja li i{
-  padding: 5px;
 }
 
 #myUL {
@@ -56,145 +60,6 @@
   align-items: center;
   justify-content: flex-end;
   font-weight: bold;
-}
-
-.add_new_tag{
-  position: relative;
-}
-
-.add_new_tag .add_tag{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-  cursor: pointer;
-  background: #0099ff;
-  position: absolute;
-  right: 0;
-  z-index: 1;
-  outline: none;
-  border: none;
-  border-radius: 3px;
-  transition: all .2s ease;
-}
-
-.add_new_tag .add_tag:hover{
-  transform: scale(1.1);
-}
-
-.add_new_tag .add_tag i{
-  position: relative;
-  cursor: pointer;
-  color: #fff;
-}
-
-.add_new_tag .add_tag:before{
-  content: '+';
-  position: absolute;
-  right: 1px;
-  top: -2px;
-  font-weight: bold;
-  color: #fff;
-  font-size: 10px;
-}
-
-.tag_list{
-  position: relative;
-  width: 45%;
-  scroll-behavior: smooth;
-  max-height: 300px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-
-.tag_list .bx-home{
-  margin-left: 9px;
-  font-weight: 500;
-  font-size: 17px;
-}
-
-.odjeljenja:before{
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: calc(100% - 40px);
-  background: #ccc;
-  left: 7px;
-  top: 30px;
-}
-
-.odjeljenja li:first-child{
-  margin-left: 0;
-  position: relative;
-}
-
-.odjeljenja li{
-  position: relative;
-  margin-left: 30px;
-}
-
-.odjeljenja li::before{
-  content: '';
-  position: absolute;
-  height: 2px;
-  width: 15px;
-  background: #ccc;
-  left: -20px;
-  top: 12px;
-}
-
-.odjeljenja li:first-child::before{
-  content: '';
-  position: absolute;
-  height: 0;
-  width: 0;
-  background: #ccc;
-  left: -20px;
-  top: 12px;
-}
-
-.pododjeljenja{
-  margin-left: 20px;
-}
-
-.pododjeljenja:before{
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: calc(100% - 60px);
-  background: #ccc;
-  left: 27px;
-  top: 50px;;
-}
-
-.pododjeljenja li:first-child{
-  margin-left: 0;
-  position: relative;
-}
-
-.pododjeljenja li{
-  position: relative;
-  margin-left: 30px;
-}
-
-.pododjeljenja li::before{
-  content: '';
-  position: absolute;
-  height: 2px;
-  width: 15px;
-  background: #ccc;
-  left: -20px;
-  top: 12px;
-}
-
-.pododjeljenja li:first-child::before{
-  content: '';
-  position: absolute;
-  height: 0;
-  width: 0;
-  background: #ccc;
-  left: -20px;
-  top: 12px;
 }
 
 /* Recent used icons */

@@ -6,6 +6,7 @@ import PageButtons from "./components/users/PageButtons";
 import EditUserModal from "./components/UI/Modal/EditUserModal";
 import Login from "./components/login/Login";
 import DashBoard from "./components/control-panel/DashBoard";
+import SideMenu from "./components/UI/SideMeni/SideMenu";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -122,8 +123,16 @@ function App() {
     setLoggedIn(true);
   }
 
+  const logoutUserHandler = () => {
+    setLoggedIn(false);
+  }
+
   const openUsersPageHandler = () => {
     setOpenUsersPage(true);
+  }
+
+  const openStartPageHandler = () => {
+    setOpenUsersPage(false);
   }
 
   return (
@@ -131,8 +140,9 @@ function App() {
       {!loggedIn && <section>
         <Login onLogin={loginUserHandler}></Login>
       </section>}
-      {loggedIn && <section>
-        <DashBoard onOpenUsers={openUsersPageHandler}></DashBoard>
+      {loggedIn && <SideMenu onLogout={logoutUserHandler} openStartPage={openStartPageHandler} onOpenUsers={openUsersPageHandler}></SideMenu>}
+      {!openUsersPage && loggedIn && <section>
+        <DashBoard></DashBoard>
       </section>}
       {openUsersPage && <section className={classes['main-body']}>
         {users && <EntriesAndSearch tagSelect={selectedTagHandler} tags={tags} users={users} onSearch={searchHandler}

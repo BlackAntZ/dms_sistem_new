@@ -1,0 +1,110 @@
+.sidebar-menu {
+  height: 100%;
+  width: 15rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--color-primary-900);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.5s ease-out 0.2s;
+}
+
+.sidebar-mini {
+  width: 6rem;
+}
+
+.sidebar-menu > div:first-of-type {
+  flex: 0 0 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo div{
+  padding: var(--space-3) var(--space-1) var(--space-1);
+  border-radius: var(--border-radius-medium);
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-700);
+  box-shadow: var(--shadow-big);
+  font-size: var(--space-8);
+  transition: all 0.5s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo div:active {
+  box-shadow: none;
+}
+
+.sidebar-menu nav {
+  padding-top: 2rem;
+  flex: 0 0 90%;
+}
+
+.sidebar-mini nav {
+  margin: 0;
+}
+
+.side-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.side-icons li {
+  font-size: var(--space-6);
+  padding: var(--space-8) 0;
+}
+
+.sidebar-mini .side-icons li {
+  margin: 0;
+}
+
+.side-icons li div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 2px;
+  padding: var(--space-2) var(--space-8);
+  color: var(--color-gray-100);
+}
+
+.side-icons li div::selection {
+  border-left: 3px solid var(--color-gray-50);
+  background: linear-gradient(90deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+}
+
+.side-icons__selected {
+  border-left: 3px solid var(--color-gray-50);
+  background: linear-gradient(90deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+}
+
+.side-icons li div:hover,
+.side-icons li div:active {
+  background-color: var(--color-gray-500);
+}
+
+.side-icons i {
+  font-size: 2rem;
+}
+
+.side-icons span {
+  padding-left: var(--space-8);
+  opacity: 1;
+  transition: all 0.5s ease-out 0.5s;
+  visibility: unset;
+}
+
+.sidebar-mini .side-icons span {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-out;
+}
+
+.logout-button div:hover {
+  background-color: var(--color-error-500) !important;
+}

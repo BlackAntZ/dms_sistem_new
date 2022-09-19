@@ -1,16 +1,14 @@
 import classes from "./DashBoard.module.css";
 import {useCallback, useEffect, useState} from "react";
 import AddNewTagModal from "../UI/Modal/AddNewTagModal";
+import TagList from "./TagList";
+import ItemTable from "../UI/Table/ItemTable";
 
 const DashBoard = () => {
   const [odjeljenja, setOdjeljenja] = useState([]);
   const [openTagModal, setOpenTagModal] = useState(false);
-  // const tagList = document.querySelector('.tag_list');
-  // const odjeljenja = document.querySelector('.odjeljenja');
-  // const tree = document.querySelector('.tree');
-  // const child = document.getElementById('child');
-  // const parent = document.getElementById('parent');
-  // const odjeljenjeNaziv = document.getElementById('odjeljenje');
+  const [selectedTag, setSelectedTag] = useState(0);
+  const [tagAdded, setTagAdded] = useState(false);
 
   const fetchOdjeljenja = useCallback(async () => {
     let response;
@@ -26,25 +24,9 @@ const DashBoard = () => {
     }
 
     return await response.json();
-
-    // const treeview = document.querySelectorAll('ul.treeview a:not(:last-child)');
-    //
-    // for(let i = 0; i < treeview.length; i++){
-    //   treeview[i].addEventListener('click', function(e) {
-    //     const parent = e.target.parentElement;
-    //     const classList = parent.classList;
-    //     if(classList.contains("open")) {
-    //       classList.remove('open');
-    //       const opensubs = parent.querySelectorAll(':scope .open');
-    //       for(let i = 0; i < opensubs.length; i++){
-    //         opensubs[i].classList.remove('open');
-    //       }
-    //     } else {
-    //       classList.add('open');
-    //     }
-    //   });
-    // }
   },[])
+
+
 
   const fillTagsData = useCallback(data => {
     setOdjeljenja(data);
@@ -55,50 +37,7 @@ const DashBoard = () => {
       if (!r[0]) return console.log('Nema odjeljenja');
       fillTagsData(r);
     })
-  },[fillTagsData, fetchOdjeljenja])
-
-  //Dodaj novo odjeljenje
-  // async function dodajOdjeljenje(){
-  //   let response;
-  //   response = await fetch(`/dashboard`,{
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       parent: $('#parent').val(),
-  //       naziv: $('#naziv').val(),
-  //     }),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   });
-  //
-  //   if(!response.ok){
-  //     console.log('Nesto nije u redu');
-  //   }
-  //
-  //   // const responseData = await response.json();
-  //   // console.log(responseData);
-  // }
-
-  //Inicijalizacija DataTable
-  // let dt = $('#zadaci').DataTable({
-  //   columns: [
-  //     {
-  //       data: 'naziv',
-  //       name: 'naziv',
-  //       title: 'Naziv'
-  //     },
-  //   ],
-  //   language: {
-  //     emptyTable: 'Nema dostupnih podataka'
-  //   },
-  //   ajax: {
-  //     type: 'get',
-  //     url: '/dashborad/odjeljenja',
-  //     contentType: 'application/json; charset=utf-8',
-  //     dataType: 'json',
-  //     dataSrc: ''
-  //   }
-  // });
+  },[fillTagsData, fetchOdjeljenja, tagAdded])
 
   const openTagModalHandler = () => {
     setOpenTagModal(true);
@@ -108,27 +47,23 @@ const DashBoard = () => {
     setOpenTagModal(false);
   }
 
+  const selectTagHandler = id => {
+    setSelectedTag(id);
+  }
+
+  const tagAddedHandler = () => {
+    setTagAdded(prevState => !prevState);
+  }
+
   return (
     <>
-      {openTagModal && <AddNewTagModal closeModal={closeTagModalHandler}></AddNewTagModal>}
+      {openTagModal && <AddNewTagModal onAdd={tagAddedHandler} tag={selectedTag} closeModal={closeTagModalHandler}></AddNewTagModal>}
       <div className={classes['logged_user']}>
         <span>Aktivni korisnik</span>
       </div>
       <div className={classes['container']}>
         <div className={classes['top_section']}>
-          <div className={`${classes['tag_list']} ${classes['box_shadow']}`}>
-            <div className={classes['add_new_tag']}>
-              <button onClick={openTagModalHandler} id="add_tag" className={classes['add_tag']}><i className='bx bxs-purchase-tag'></i></button>
-            </div>
-            <ul className={classes.odjeljenja}>
-              <li>
-                <i className='bx bx-home'></i>
-              </li>
-            </ul>
-            <ul className={classes['tree']}>
-              {odjeljenja && odjeljenja.map(odjeljenje => {return <li key={odjeljenje.id}><i className="fa-solid fa-tags"></i>{odjeljenje.naziv}</li>})}
-            </ul>
-          </div>
+          {odjeljenja && odjeljenja.length > 0 && <TagList onAddTag={openTagModalHandler} onSelect={selectTagHandler} odjelenja={odjeljenja}></TagList>}
 
           <div className={`${classes['recent_used']} ${classes['box_shadow']}`}>
             <div className={classes['recent_buttons']}>
@@ -192,7 +127,9 @@ const DashBoard = () => {
         </div>
         <div>
           <h3>Spisak zadataka</h3>
-          <table id="zadaci"></table>
+          <ItemTable columns={[{id: '1', name: 'name', sort: true, text: 'Naziv'},{id: '2', name: 'broj_datoteka', sort: true, text: 'Broj datoteka'},{id: '3', sort: false, text: 'Opcije'}]}>
+
+          </ItemTable>
         </div>
       </div>
     </>

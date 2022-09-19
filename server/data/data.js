@@ -7,7 +7,7 @@ async function connectToDatabase() {
     host: 'localhost',
     database: 'dms_sistem',
     user: 'root',
-    password: 'Hard1988%dejanbajic'
+    password: 'hard1988'
   });
 }
 

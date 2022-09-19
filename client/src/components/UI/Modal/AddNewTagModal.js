@@ -7,8 +7,7 @@ import Button from "../Button/Button";
 
 const Modal = props => {
   const [modalClasses, setModalClasses] = useState(`${classes.modal__wrapper} ${classes.hidden}`);
-  const [selectedTag, setSelectedTag] = useState(0);
-  const [formData, setFormData] = useState({parent: {value: `${selectedTag}`, error: false}, child: {value: '0', error: false}, naziv: {value: '', error: true}, boja: {value: '', error: true}});
+  const [formData, setFormData] = useState({parent: {value: `${props.tag}`, error: false}, child: {value: '0', error: false}, naziv: {value: '', error: true}, boja: {value: '', error: true}});
   const [pickedColor, setPickedColor] = useState(false);
   const tagName = useRef();
   const bojaRef = useRef();
@@ -60,7 +59,7 @@ const Modal = props => {
       }
     }
     postTagData().then(r => {
-      console.log(r);
+      if (r === 'Uspjesno dodano') props.onAdd();
     })
   }
 
@@ -91,7 +90,7 @@ const AddNewTagModal = props => {
   return (
     <>
       {ReactDOM.createPortal(<BackDrop closeModal={props.closeModal}></BackDrop>, document.getElementById('overlays'))}
-      {ReactDOM.createPortal(<Modal closeModal={props.closeModal}></Modal>, document.getElementById('overlays'))}
+      {ReactDOM.createPortal(<Modal tag={props.tag} onAdd={props.onAdd} closeModal={props.closeModal}></Modal>, document.getElementById('overlays'))}
     </>
   )
 }
