@@ -1,7 +1,3 @@
-.container {
-  margin: 2rem 0 2rem 7rem;
-}
-
 .btn-primary {
   background: #42A5F5;
   color: #fff;
@@ -21,7 +17,7 @@
 
 .top_section{
   display: flex;
-    gap: 2rem;
+  justify-content: space-between;
 }
 
 #myUL {
@@ -65,18 +61,20 @@
 /* Recent used icons */
 .recent_used{
   display: flex;
-  gap: 10px;
   position: relative;
   flex-direction: column;
   justify-content: space-between;
   width: 50%;
-  height: 230px;
+  min-height: 14rem;
+  background-color: white;
+  border-radius: var(--border-radius-medium);
 }
 
 .recent_buttons{
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  margin-right: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
 }
 
 .recent_buttons button{
@@ -87,8 +85,8 @@
 
 .recent_used .config{
   position: absolute;
-  right: -20px;
-  top: -20px;
+  right: 1rem;
+  top: 1rem;
   font-size: 20px;
   cursor: pointer;
   transition: all .2s ease;
@@ -151,3 +149,15 @@
   background: #EF5350;
 }
 /* Tasks end */
+
+.table_section {
+  margin-top: 1rem;
+  position: relative;
+}
+
+.table_section > div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}

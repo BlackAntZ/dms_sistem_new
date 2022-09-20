@@ -1,11 +1,11 @@
 import classes from "./EditTagsModal.module.css";
-import ReactDOM from "react-dom";
-import Button from "../Button/Button";
+import Button from "../../Button/Button";
 import {useCallback, useEffect, useState} from "react";
-import ConfirmModal from "./ConfirmModal";
-import {BackDrop} from "./EditUserModal";
+import ConfirmModal from "../Templates/ConfirmModal";
+import InputModal from "../Templates/InputModal";
 
-const Modal = props => {
+
+const EditTagsModal = props => {
   const [selectedTag, setSelectedTag] = useState(props.userTags[0].id);
   const [selectedParent, setSelectedParent] = useState(props.userTags[0].parent);
   const [editedTags, setEditedTags] = useState(props.userTags);
@@ -88,39 +88,12 @@ const Modal = props => {
 
   const confirmCloseModal = () => {
     if (tagsWereEdited) {
-      props.tagsEdit();
+      openConfirmHandler();
     }
     else {
       props.closeModal();
     }
   }
-
-  return (
-    <form onSubmit={submitFormHandler} className={classes['modal']}>
-      <div className={classes['tag-buttons']}>
-        {editedTags && editedTags.map(tag =>
-          <button data-id={tag.id} data-parent-id={tag.parent} onClick={selectTagHandler} className={`${classes['tag-button']} ${selectedTag === tag.id ? classes['tag-selected'] : ''}`} key={tag.id}>
-            <i data-id={tag.id} data-parent-id={tag.parent} style={{color: `${tag.boja}`}} className='bx bxs-purchase-tag'></i>
-          </button>
-        )}
-      </div>
-      <div className={classes['tags-div']}>
-        <div className={classes['tags-location']}>
-          {location}
-        </div>
-        <div className={classes['check-div']}>
-          {tagsCheck}
-        </div>
-      </div>
-      <div className={classes['buttons-div']}>
-        <Button type='reset' alt={true} close={confirmCloseModal}>Ponisti</Button>
-        <Button type='submit' alt={false} >Sacuvaj</Button>
-      </div>
-    </form>
-  )
-}
-
-const EditTagsModal = props => {
   const [openConfirm, setOpenConfirm] = useState(false);
 
   const openConfirmHandler = () => {
@@ -132,11 +105,29 @@ const EditTagsModal = props => {
   }
 
   return (
-    <>
-      {ReactDOM.createPortal(<Modal tags={props.tags} tagsEdit={openConfirmHandler} userTags={props.userTags} closeModal={props.closeModal}></Modal>, document.getElementById('overlays'))}
-      {openConfirm && ReactDOM.createPortal(<BackDrop index={5} closeModal={closeConfirmHandler}></BackDrop>, document.getElementById('overlays'))}
-      {openConfirm && ReactDOM.createPortal(<ConfirmModal index={5} closeModal={props.closeModal} cancelClose={closeConfirmHandler}></ConfirmModal>, document.getElementById('overlays'))}
-    </>
+    <InputModal heading={'Uredi korisnicka odjeljenja'} index={'4'} closeModal={confirmCloseModal}>
+      {openConfirm && <ConfirmModal index={5} closeModal={props.closeModal} cancelClose={closeConfirmHandler}></ConfirmModal>}
+      <form onSubmit={submitFormHandler}>
+        <div className={classes['tag-buttons']}>
+          {editedTags && editedTags.map(tag =>
+            <button data-id={tag.id} data-parent-id={tag.parent} onClick={selectTagHandler} className={`${classes['tag-button']} ${selectedTag === tag.id ? classes['tag-selected'] : ''}`} key={tag.id}>
+              <i data-id={tag.id} data-parent-id={tag.parent} style={{color: `${tag.boja}`}} className='bx bxs-purchase-tag'></i>
+            </button>
+          )}
+        </div>
+        <div className={classes['tags-div']}>
+          <div className={classes['tags-location']}>
+            {location}
+          </div>
+          <div className={classes['check-div']}>
+            {tagsCheck}
+          </div>
+        </div>
+        <div className={classes['buttons-div']}>
+          <Button type='submit' alt={false} >Sacuvaj</Button>
+        </div>
+      </form>
+    </InputModal>
   )
 }
 

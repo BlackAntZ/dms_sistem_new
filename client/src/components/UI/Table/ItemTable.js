@@ -17,31 +17,27 @@ const UsersList = props => {
   }
 
   return (
-    <div>
-      <section>
-        <div>
-          <ul ref={listOfUploadedItems} className={classes['users-list']}>
-            <li style={{gridTemplateColumns: `repeat(${props.columns.length},1fr)`}}>
-              {props.columns.map(column => {
-                if (column.sort) {
-                  return (
-                    <div onClick={sortTableHandler} data-id={column.name} className='cursor-pointer'>{column.text}
-                      <div>
-                        {(sortTerm === null || sortTerm !== column.name) && <i className={`bx bxs-up-arrow ${classes['normal__arrow']}`}></i>}
-                        {(sortTerm === null || sortTerm !== column.name) && <i className={`bx bxs-down-arrow ${classes['normal__arrow']}`}></i>}
-                        {sortTerm === column.name && sortDir === 1 && <i className={`bx bxs-up-arrow ${classes['arrow__selected']}`}></i>}
-                        {sortTerm === column.name && sortDir === -1 && <i className={`bx bxs-down-arrow ${classes['arrow__selected']}`}></i>}
-                      </div>
-                    </div>
-                  )
-                }
-                return (<div>{column.text}<div></div></div>)
-              })}
-            </li>
-            {props.children}
-          </ul>
-        </div>
-      </section>
+    <div className={classes['table_div']}>
+      <div className={classes['table_item']} style={{gridTemplateColumns: `repeat(${props.columns.length},1fr)`}}>
+        {props.columns.map(column => {
+          if (column.sort) {
+            return (
+              <div key={column.id} onClick={sortTableHandler} data-id={column.name} className='cursor-pointer'>{column.text}
+                <div>
+                  {(sortTerm === null || sortTerm !== column.name) && <i className={`bx bxs-up-arrow ${classes['normal__arrow']}`}></i>}
+                  {(sortTerm === null || sortTerm !== column.name) && <i className={`bx bxs-down-arrow ${classes['normal__arrow']}`}></i>}
+                  {sortTerm === column.name && sortDir === 1 && <i className={`bx bxs-up-arrow ${classes['arrow__selected']}`}></i>}
+                  {sortTerm === column.name && sortDir === -1 && <i className={`bx bxs-down-arrow ${classes['arrow__selected']}`}></i>}
+                </div>
+              </div>
+            )
+          }
+          return (<div key={column.id}>{column.text}<div></div></div>)
+        })}
+      </div>
+      <ul ref={listOfUploadedItems} className={classes['users-list']}>
+        {props.children}
+      </ul>
     </div>
   )
 }

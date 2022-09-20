@@ -21,7 +21,6 @@ const UsersList = props => {
     <div>
       <section>
         <div>
-
           <ul ref={listOfUploadedUsers} className={classes['users-list']}>
             <li>
               <div onClick={sortTableHandler} data-id="name" className='cursor-pointer'>Ime

@@ -1,20 +1,14 @@
-import ReactDOM from "react-dom";
-import {BackDrop} from "./EditUserModal";
 import classes from "./AddNewTagModal.module.css";
-import React, {useEffect, useRef, useState} from "react";
-import Input from "../Input/Input";
-import Button from "../Button/Button";
+import React, {useRef, useState} from "react";
+import Input from "../../Input/Input";
+import Button from "../../Button/Button";
+import InputModal from "../Templates/InputModal";
 
-const Modal = props => {
-  const [modalClasses, setModalClasses] = useState(`${classes.modal__wrapper} ${classes.hidden}`);
+const AddNewTagModal = props => {
   const [formData, setFormData] = useState({parent: {value: `${props.tag}`, error: false}, child: {value: '0', error: false}, naziv: {value: '', error: true}, boja: {value: '', error: true}});
   const [pickedColor, setPickedColor] = useState(false);
   const tagName = useRef();
   const bojaRef = useRef();
-
-  useEffect(()=> {
-    setModalClasses(`${classes.modal__wrapper}`);
-  },[])
 
   const validateColorHandler = () => {
     setPickedColor(false);
@@ -59,20 +53,13 @@ const Modal = props => {
       }
     }
     postTagData().then(r => {
+      console.log(r);
       if (r === 'Uspjesno dodano') props.onAdd();
     })
   }
 
   return (
-    <div role="dialog" aria-labelledby="dialog header" aria-modal="true" className={modalClasses}>
-      <div className={classes['modal__header']}>
-        <h2>
-          Dodaj novo odjeljenje
-        </h2>
-        <button onClick={props.closeModal} type={"button"} className={classes['modal__close']}>
-          <i className='bx bx-x-circle'></i>
-        </button>
-      </div>
+    <InputModal heading={'Dodaj novo odjeljenje'} index={'4'} closeModal={props.closeModal}>
       <form onSubmit={submitTagHandler} className={classes['content']}>
         <Input ref={tagName} onSubmit={validateInputHandler} name='naziv' type='text' label='Naziv odjeljenja'></Input>
         <div className={classes.input_div}>
@@ -80,18 +67,9 @@ const Modal = props => {
           <input onChange={validateColorHandler} ref={bojaRef} id={'boja'} type={"color"}/>
           {pickedColor && <div className={classes['empty-div']}>{`Odaberite boju!`}</div>}
         </div>
-        <Button type='submit' alt={false} >Sacuvaj</Button>
+        <Button type='submit' alt={false}>Sacuvaj</Button>
       </form>
-    </div>
-  )
-}
-
-const AddNewTagModal = props => {
-  return (
-    <>
-      {ReactDOM.createPortal(<BackDrop closeModal={props.closeModal}></BackDrop>, document.getElementById('overlays'))}
-      {ReactDOM.createPortal(<Modal tag={props.tag} onAdd={props.onAdd} closeModal={props.closeModal}></Modal>, document.getElementById('overlays'))}
-    </>
+    </InputModal>
   )
 }
 

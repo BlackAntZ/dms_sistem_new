@@ -3,7 +3,7 @@ import classes from "./App.module.css";
 import UsersList from "./components/users/UsersList";
 import EntriesAndSearch from "./components/users/EntriesAndSearch";
 import PageButtons from "./components/users/PageButtons";
-import EditUserModal from "./components/UI/Modal/EditUserModal";
+import EditUserModal from "./components/UI/Modal/User/EditUserModal";
 import Login from "./components/login/Login";
 import DashBoard from "./components/control-panel/DashBoard";
 import SideMenu from "./components/UI/SideMeni/SideMenu";
@@ -21,6 +21,8 @@ function App() {
   const [editUserData, setEditUserData] = useState({});
   const [tags, setTags] = useState([]);
   const [selectedTagFilter, setSelectedTagFilter] = useState('0');
+  const [mainSectionClasses, setMainSectionClasses] = useState({value: `${classes['main-body']}`, alt: false});
+
 
   const fetchData = async () => {
     const res = await fetch("/admin/users");
@@ -135,16 +137,20 @@ function App() {
     setOpenUsersPage(false);
   }
 
+  const toggleSidebarHandler = () => {
+    mainSectionClasses.alt ? setMainSectionClasses({value: `${classes['main-body']}`, alt: false}) : setMainSectionClasses({value: `${classes['main-body']} ${classes['main-alt']}`, alt: true});
+  }
+
   return (
     <>
       {!loggedIn && <section>
         <Login onLogin={loginUserHandler}></Login>
       </section>}
-      {loggedIn && <SideMenu onLogout={logoutUserHandler} openStartPage={openStartPageHandler} onOpenUsers={openUsersPageHandler}></SideMenu>}
-      {!openUsersPage && loggedIn && <section>
+      {loggedIn && <SideMenu toggleSidebar={toggleSidebarHandler} onLogout={logoutUserHandler} openStartPage={openStartPageHandler} onOpenUsers={openUsersPageHandler}></SideMenu>}
+      {!openUsersPage && loggedIn && <section className={mainSectionClasses.value}>
         <DashBoard></DashBoard>
       </section>}
-      {openUsersPage && <section className={classes['main-body']}>
+      {openUsersPage && <section className={mainSectionClasses.value}>
         {users && <EntriesAndSearch tagSelect={selectedTagHandler} tags={tags} users={users} onSearch={searchHandler}
                                     entriesSelect={selectEntriesHandler}></EntriesAndSearch>}
         {filteredUsers &&

@@ -1,10 +1,11 @@
 .div {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: relative;
-  margin: 0 10% 1rem;
+  padding: 0 10% 1rem;
 }
 
 .div input {
@@ -23,23 +24,23 @@
   color: green;
   font-size: 1.5rem;
   position: absolute;
-  right: 0.2rem;
-  top: 0.4rem;
+  right: calc(10% + 0.3rem);
+  top: 0.45rem;
 }
 
 .x-circle {
   color: rgb(121, 26, 26);
   font-size: 1.5rem;
   position: absolute;
-  right: 0.2rem;
-  top: 0.4rem;
+  right: calc(10% + 0.3rem);
+  top: 0.45rem;
 }
 
 .error-div {
   color:rgb(121, 26, 26);
   position: absolute;
   top: 2.2rem;
-  left: 0;
+  left: 10%;
   font-size: 0.8rem;
 }
 
@@ -47,7 +48,7 @@
   color: rgb(133, 111, 0);
   position: absolute;
   top: 2.2rem;
-  left: 0;
+  left: 10%;
   font-size: 0.8rem;
   white-space: nowrap;
 }

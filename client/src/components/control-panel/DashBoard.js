@@ -1,14 +1,20 @@
 import classes from "./DashBoard.module.css";
 import {useCallback, useEffect, useState} from "react";
-import AddNewTagModal from "../UI/Modal/AddNewTagModal";
+import AddNewTagModal from "../UI/Modal/Tag/AddNewTagModal";
 import TagList from "./TagList";
 import ItemTable from "../UI/Table/ItemTable";
+import Button from "../UI/Button/Button";
+import AddNewTaskModal from "../UI/Modal/Task/AddNewTaskModal";
+import TaskItem from "./TaskItem";
 
 const DashBoard = () => {
   const [odjeljenja, setOdjeljenja] = useState([]);
+  const [zadaci, setZadaci] = useState([]);
   const [openTagModal, setOpenTagModal] = useState(false);
+  const [openTaskModal, setOpenTaskModal] = useState(false);
   const [selectedTag, setSelectedTag] = useState(0);
   const [tagAdded, setTagAdded] = useState(false);
+  const [taskAdded, setTaskAdded] = useState(false);
 
   const fetchOdjeljenja = useCallback(async () => {
     let response;
@@ -23,21 +29,38 @@ const DashBoard = () => {
       console.log('Nije moguce povuci podatke iz baze');
     }
 
-    return await response.json();
-  },[])
+    const parsed = await response.json();
+    if (!parsed[0]) return 'Nema odjeljenja';
 
+    setOdjeljenja(parsed);
+  },[]);
 
+  const fetchZadaci = useCallback(async () => {
+    let response;
+    try {
+      response = await fetch('/admin/task');
+    } catch (error) {
+      console.log(error);
+      return;
+    }
 
-  const fillTagsData = useCallback(data => {
-    setOdjeljenja(data);
+    if(!response.ok){
+      console.log('Nije moguce povuci podatke iz baze');
+    }
+
+    const parsed = await response.json();
+    if (!parsed[0]) return 'Nema zadataka';
+
+    setZadaci(parsed);
   },[]);
 
   useEffect(()=>{
-    fetchOdjeljenja().then(r => {
-      if (!r[0]) return console.log('Nema odjeljenja');
-      fillTagsData(r);
-    })
-  },[fillTagsData, fetchOdjeljenja, tagAdded])
+    fetchOdjeljenja().then(r => console.log(r || ''))
+  },[fetchOdjeljenja, tagAdded]);
+
+  useEffect(()=>{
+    fetchZadaci().then(r => console.log(r || ''))
+  },[fetchZadaci, taskAdded]);
 
   const openTagModalHandler = () => {
     setOpenTagModal(true);
@@ -55,16 +78,28 @@ const DashBoard = () => {
     setTagAdded(prevState => !prevState);
   }
 
+  const taskAddedHandler = () => {
+    setTaskAdded(prevState => !prevState);
+  }
+
+  const openAddNewTaskModalHandler = () => {
+    setOpenTaskModal(true);
+  }
+
+  const closeAddNewTaskModalHandler = () => {
+    setOpenTaskModal(false);
+  }
+
   return (
     <>
       {openTagModal && <AddNewTagModal onAdd={tagAddedHandler} tag={selectedTag} closeModal={closeTagModalHandler}></AddNewTagModal>}
+      {openTaskModal && <AddNewTaskModal onAdd={taskAddedHandler} closeModal={closeAddNewTaskModalHandler}></AddNewTaskModal>}
       <div className={classes['logged_user']}>
         <span>Aktivni korisnik</span>
       </div>
       <div className={classes['container']}>
         <div className={classes['top_section']}>
           {odjeljenja && odjeljenja.length > 0 && <TagList onAddTag={openTagModalHandler} onSelect={selectTagHandler} odjelenja={odjeljenja}></TagList>}
-
           <div className={`${classes['recent_used']} ${classes['box_shadow']}`}>
             <div className={classes['recent_buttons']}>
               <div className={classes['config']}>
@@ -125,12 +160,17 @@ const DashBoard = () => {
             </div>
           </div>
         </div>
-        <div>
-          <h3>Spisak zadataka</h3>
+        <section className={classes['table_section']}>
+          <div>
+            <h3>Spisak zadataka</h3>
+            <Button open={openAddNewTaskModalHandler} type={'submit'}>Dodaj Novi Zadatak</Button>
+          </div>
           <ItemTable columns={[{id: '1', name: 'name', sort: true, text: 'Naziv'},{id: '2', name: 'broj_datoteka', sort: true, text: 'Broj datoteka'},{id: '3', sort: false, text: 'Opcije'}]}>
-
+            {zadaci && zadaci.map(zadatak => {
+              return <TaskItem key={zadatak.id} naziv={zadatak.naziv} status={zadatak.status} columns={'3'}></TaskItem>
+            })}
           </ItemTable>
-        </div>
+        </section>
       </div>
     </>
   )

@@ -1,5 +1,7 @@
 const Odjeljenja = require("../models/odjeljenja.model");
+const Zadaci = require("../models/zadaci.model");
 const tagValidation = require('../util/tag.validation');
+const taskValidation = require('../util/task.validation');
 
 function getAllUsers(req, res, next) {
   try {
@@ -67,7 +69,37 @@ const postNewTag = async (req, res, next) => {
   }
 }
 
+const postNewTask = async (req, res, next) => {
+  if (!taskValidation.taskDetailsAreValid(
+    req.body.naziv
+  )) {
+    console.log('Data not valid');
+  }
+
+  const zadatak = new Zadaci(
+    req.body.naziv
+  );
+  try {
+    await zadatak.dodajNoviZadatak();
+    res.json('Uspjesno dodano');
+  } catch (error) {
+    next(error);
+  }
+}
+
+async function getAllTasks(req, res, next) {
+  const zadatak = new Zadaci();
+  try {
+    const data = await zadatak.getSveZadatke();
+    res.json(data);
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   getAllUsers: getAllUsers,
-  postNewTag: postNewTag
+  postNewTag: postNewTag,
+  postNewTask: postNewTask,
+  getAllTasks: getAllTasks
 }

@@ -45,27 +45,23 @@ const TagList = props => {
     return locationRecursion(`${odjelenja[currentIndex].parent}`, content);
   },[odjelenja]);
 
-  const changeLocationHandler = ev => {
-    setSelectedTag(ev.target.dataset.id);
-  }
-
   const drawTagLocation = useCallback(() => {
     const transformData = locationRecursion(selectedTag).map(loca => {
       if (loca.id === 0) {
         return (
           <div key={loca.id}>
-            <div onClick={changeLocationHandler} data-id={loca.id} className='cursor-pointer'><i data-id={loca.id} className='bx bx-home'></i></div>
+            <div onClick={selectedTagHandler} data-id={loca.id} className='cursor-pointer'><i data-id={loca.id} className='bx bx-home'></i></div>
           </div>
         )
       }
       return (
         <div key={loca.id}>
-          <div>/</div><div onClick={changeLocationHandler} data-id={loca.id} className={`cursor-pointer ${classes['odjeljenje_div']}`}>{loca.name}</div>
+          <div>/</div><div onClick={selectedTagHandler} data-id={loca.id} className={`cursor-pointer ${classes['odjeljenje_div']}`}>{loca.name}</div>
         </div>
       )
     });
     setLocation(transformData);
-  }, [selectedTag, locationRecursion]);
+  }, [selectedTag, locationRecursion, selectedTagHandler]);
 
   useEffect(() => {
     drawOdjeljenja();

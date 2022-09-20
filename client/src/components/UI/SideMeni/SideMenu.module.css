@@ -33,6 +33,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .logo div:active {
@@ -65,6 +66,7 @@
 }
 
 .side-icons li div {
+  cursor: pointer;
   width: 100%;
   display: flex;
   align-items: center;

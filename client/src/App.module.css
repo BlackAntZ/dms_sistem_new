@@ -1,3 +1,8 @@
 .main-body {
   margin: 1rem 1rem 1rem 7rem;
+  transition: all 0.5s ease-out 0.2s;
+}
+
+.main-alt {
+  margin-left: 16rem;
 }
