@@ -5,36 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55f3408c-a7f4-4ad4-84da-063e7f616cf0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Task/AddNewTaskModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Task/AddNewTaskModal.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Templates/InputModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Templates/InputModal.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/control-panel/TaskItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/control-panel/TaskItem.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/zadaci.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/util/task.validation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/UI/Tooltip/ToolTip.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/UI/Tooltip/ToolTip.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/33ff5030-f79e-4370-b7f0-bc69d1f7c0ce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/33ff5030-f79e-4370-b7f0-bc69d1f7c0ce.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Input/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Input/Input.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/UI/Input/Input.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Input/Input.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/AddNewTagModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Tag/AddNewTagModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/AddNewTagModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Tag/AddNewTagModal.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/ConfirmModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Templates/ConfirmModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/ConfirmModal.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/EditTagsModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditTagsModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/EditTagsModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditTagsModal.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/EditUserModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditUserModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/EditUserModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditUserModal.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/SideMeni/SideMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/SideMeni/SideMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/SideMeni/SideMenu.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/SideMeni/SideMenu.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Table/ItemTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Table/ItemTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Table/ItemTable.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Table/ItemTable.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/Task/AddNewTaskModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Task/AddNewTaskModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/Task/AddNewTaskModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Task/AddNewTaskModal.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditTagsModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditTagsModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditTagsModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditTagsModal.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditUserModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditUserModal.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/control-panel/DashBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/control-panel/DashBoard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/control-panel/DashBoard.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/control-panel/DashBoard.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/control-panel/TagList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/control-panel/TagList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/control-panel/TagList.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/control-panel/TagList.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/users/UsersList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/users/UsersList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/admin.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/admin.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/admin.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/admin.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/login/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/login/Login.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/login/Login.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/users/ListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/users/ListItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/users/ListItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/users/ListItem.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/odjeljenja.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/odjeljenja.model.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,28 +49,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/dejo/Desktop/100 days/27-React-Sistem_New",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Errors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dejo/Desktop/100 days/25-Contract-Book-React&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client/src/components/UI/Modal/Templates" />
@@ -95,7 +88,9 @@
       <option name="presentableId" value="Default" />
       <updated>1663593528396</updated>
       <workItem from="1663593529548" duration="2110000" />
-      <workItem from="1663654881030" duration="16484000" />
+      <workItem from="1663654881030" duration="20581000" />
+      <workItem from="1663740642729" duration="23332000" />
+      <workItem from="1663826839249" duration="14510000" />
     </task>
     <servers />
   </component>

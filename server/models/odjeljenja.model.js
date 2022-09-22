@@ -27,8 +27,8 @@ class Odjeljenje {
     ];
 
     await db.getDb().query('insert into odjeljenja (parent, child, naziv, boja) values (?)', [data]);
+    await db.getDb().query('update odjeljenja set child = 1 where id = (?)', this.parent);
   }
-
 }
 
 module.exports = Odjeljenje;

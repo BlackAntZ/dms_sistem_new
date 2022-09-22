@@ -1,40 +1,31 @@
-.buttons-div {
-  margin-top: 2rem;
+.tag-button {
+  padding: 0.3rem;
+  border-radius: var(--border-radius-small);
+  outline: 2px solid var(--color-gray-300);
+  background-color: var(--color-gray-50);
+  cursor: pointer;
+  font-size: 1.3rem;
+  margin-right: 0.4rem;
   display: flex;
-  justify-content: center;
   align-items: center;
+  border: none;
+}
+
+.tag-button:hover {
+  outline: 2px solid orange;
+}
+
+.tag-selected {
+  outline: 2px solid orange;
 }
 
 .tags-div {
   width: 100%;
   height: 10rem;
   position: relative;
-  border: 1px solid var(--color-primary-500);
+  border: 2px solid var(--color-gray-500);
   border-radius: var(--border-radius-small);
   overflow: hidden;
-}
-
-.check-div {
-  height: calc(100% - 2rem);
-  overflow-y: scroll;
-}
-
-.check-div::-webkit-scrollbar {
-  width: 0.2rem;
-  background-color: transparent;
-}
-
-.check-div::-webkit-scrollbar-track {
-  border-radius: 100vw;
-}
-
-.check-div::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border-radius: 100vw;
-}
-
-.check-div:hover::-webkit-scrollbar-thumb {
-  background-color: var(--color-gray-200);
 }
 
 .tags-location {
@@ -70,64 +61,70 @@
   margin-bottom: 1rem;
 }
 
-.tag-button {
-  padding: 0.3rem;
-  border-radius: var(--border-radius-small);
-  outline: 2px solid var(--color-gray-300);
-  background-color: var(--color-gray-50);
-  cursor: pointer;
-  font-size: 1.3rem;
-  margin-right: 0.4rem;
-  display: flex;
-  align-items: center;
-  border: none;
+.check-div {
+  height: calc(100% - 2rem);
 }
 
-.tag-button:hover {
-  outline: 2px solid orange;
-}
-
-.tag-selected {
-  outline: 2px solid orange;
-}
-
-.tag-checkbox{
-  display: flex;
-  align-items: center;
-  margin: 0.3rem;
-  padding: 0.2rem 0.5rem;
+.check_list_item {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  width: 10rem;
-  cursor: pointer;
-  border-radius: var(--border-radius-small);
+  height: 1.4rem;
+  padding: 0.2rem 0.2rem;
+  display: flex;
+  border-bottom: 1px solid var(--color-primary-500);
 }
 
-.tag-checkbox__alt {
-  background-color: #98c798;
-}
-
-.tag-checkbox:hover {
+.check-div > .check_list_item {
   background-color: var(--color-gray-100);
 }
 
-.tag-checkbox input {
-  display: none;
+.check_list_item > div {
+  flex: 1;
+  line-height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.tag-checkbox label {
-  display: flex;
-  align-items: center;
+.check_list_item > div:not(.check_list_item > div:last-of-type) {
+  border-right: 1px solid var(--color-primary-500);
+}
+
+.check_list_item i {
+  font-size: 1rem;
+  color: darkgreen;
+  margin-inline: 0.2rem;
   cursor: pointer;
 }
 
-.tag-checkbox i {
-  font-size: 1.3rem;
-  color: darkgreen;
+.check_list_div {
+  height: calc(100% - 1.4rem);
+  overflow-y: scroll;
 }
 
-.tag-checkbox__alt i:last-of-type {
-  margin-left: auto;
+.check_list_div::-webkit-scrollbar {
+  width: 0.2rem;
+  background-color: transparent;
+}
+
+.check_list_div::-webkit-scrollbar-track {
+  border-radius: 100vw;
+}
+
+.check_list_div::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 100vw;
+}
+
+.check_list_div:hover::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-200);
+}
+
+.buttons-div {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

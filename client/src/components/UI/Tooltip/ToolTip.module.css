@@ -1,0 +1,25 @@
+.position-relative {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tooltip {
+  font-size: 0.7rem;
+  position: absolute;
+  background-color: #14213D;
+  color: white;
+  border-radius: var(--border-radius-small);
+  padding: 0.2rem;
+  display: none;
+  left: 50%;
+  translate: 10%;
+  z-index: 5;
+  white-space: nowrap;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.position-relative:hover .tooltip {
+  display: block;
+}

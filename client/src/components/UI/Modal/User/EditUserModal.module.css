@@ -32,12 +32,13 @@
 }
 
 .label-div {
+  font-size: 1.1rem;
   position: absolute;
-  top: 0;
+  top: -0.1rem;
   text-align: center;
   left: 50%;
   translate: -50% -50%;
-  background-color: white;
+  background-color: var(--color-gray-50);
   width: 20%;
   border-radius: var(--border-radius-small);
 }

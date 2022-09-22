@@ -48,6 +48,7 @@ const Input = React.forwardRef( (props, ref) => {
 
   return (
     <div className={classes['div']}>
+      <label htmlFor={props.name}>{props.label}</label>
       <input autoComplete={'off'} placeholder={props.label} spellCheck={"false"} defaultValue={props.value} onChange={changeHandler} ref={inputRef} id={props.name} type={props.type}></input>
       {formData.error && formData.message.length !== 0 && <i className={`bx bx-x-circle ${classes['x-circle']}`}></i>}
       {formData.error === false && formData.message.length !== 0 && <i className={`bx bx-check-circle ${classes['y-circle']}`}></i>}

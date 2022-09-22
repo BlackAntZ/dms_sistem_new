@@ -150,7 +150,7 @@ function App() {
       {!openUsersPage && loggedIn && <section className={mainSectionClasses.value}>
         <DashBoard></DashBoard>
       </section>}
-      {openUsersPage && <section className={mainSectionClasses.value}>
+      {openUsersPage && loggedIn && <section className={mainSectionClasses.value}>
         {users && <EntriesAndSearch tagSelect={selectedTagHandler} tags={tags} users={users} onSearch={searchHandler}
                                     entriesSelect={selectEntriesHandler}></EntriesAndSearch>}
         {filteredUsers &&

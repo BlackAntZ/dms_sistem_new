@@ -49,7 +49,9 @@ const AddNewTaskModal = props => {
     <InputModal heading={'Dodaj novi zadatak'} index={'4'} closeModal={props.closeModal}>
       <form onSubmit={submitTaskHandler} className={classes['content']}>
         <Input ref={taskName} onSubmit={validateInputHandler} name='naziv' type='text' label='Naziv zadatka'></Input>
-        <Button type='submit' alt={false}>Sacuvaj</Button>
+        <div className={classes['buttons_div']}>
+          <Button type='submit' alt={false}>Sacuvaj</Button>
+        </div>
       </form>
     </InputModal>
   )

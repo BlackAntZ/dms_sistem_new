@@ -3,6 +3,7 @@ import Button from "../../Button/Button";
 import {useCallback, useEffect, useState} from "react";
 import ConfirmModal from "../Templates/ConfirmModal";
 import InputModal from "../Templates/InputModal";
+import ToolTip from "../../Tooltip/ToolTip";
 
 
 const EditTagsModal = props => {
@@ -24,33 +25,77 @@ const EditTagsModal = props => {
   const [tagsCheck, setTagsCheck] = useState('');
 
   const drawTagCheckboxes = useCallback(parentId => {
-    const openFolderHandler = ev => {
-      setSelectedParent(ev.target.dataset.id);
-      setSelectedTag(0);
-    }
-    let tagsList = props.tags.map(tag => {
-      if (tag.parent === parentId) {
-        const checkedHandler = ev => {
-          if (!ev.target.classList.contains(classes['tag-checkbox__alt'])) {
-            setTagsWereEdited(true);
-            setEditedTags(prevState => [...prevState, {id: tag.id, boja: tag.boja, trajanje: ''}])
+    // const openFolderHandler = ev => {
+    //   setSelectedParent(ev.target.dataset.id);
+    //   setSelectedTag(0);
+    // }
+    let tagsList = [];
+    tagsList.push(
+      <div className={classes['check_list_item']} key={0}>
+        <div>Naziv</div>
+        <div>Opcije</div>
+      </div>
+    );
+    tagsList.push(
+      <div className={classes['check_list_div']}>
+        {props.tags.map(tag => {
+          if (tag.parent === parentId) {
+            // const checkedHandler = ev => {
+            //   if (!ev.target.classList.contains(classes['tag-checkbox__alt'])) {
+            //     setTagsWereEdited(true);
+            //     setEditedTags(prevState => [...prevState, {id: tag.id, boja: tag.boja, trajanje: ''}])
+            //   }
+            //   else {
+            //     setEditedTags(prevState => prevState.filter(item => item.id !==tag.id));
+            //   }
+            // }
+            return (
+              <div key={tag.id} className={classes['check_list_item']}>
+                <div>{tag.naziv}</div>
+                <div>
+                  {tag.child !== '0' && <ToolTip text={"Otvori pododjeljenja"}>
+                    <i className='bx bxs-folder-open'></i>
+                  </ToolTip>}
+                  <ToolTip text={"Dodijeli korisniku"}>
+                    <i className='bx bxs-plus-circle'></i>
+                  </ToolTip>
+                </div>
+              </div>
+            )
           }
-          else {
-            setEditedTags(prevState => prevState.filter(item => item.id !==tag.id));
-          }
-        }
-        return (
-          <div data-id={tag.id} onClick={tag.child === '0' ? checkedHandler : ()=>{}} onDoubleClick={tag.child === '0' ? ()=>{} : openFolderHandler} className={`${tag.child === '0' && editedTags.findIndex(userTag => userTag.id === tag.id) !== -1 ? classes['tag-checkbox__alt'] : ''} ${classes['tag-checkbox']}`} key={tag.id}>
-            {tag.child === '0' && <i style={{color: `${tag.boja}`}} className='bx bxs-purchase-tag'></i>}
-            {tag.child === '0' && tag.naziv}
-            {tag.child === '0' && editedTags.findIndex(userTag => userTag.id === tag.id) !== -1 && <i className='bx bxs-badge-check'></i>}
-            {tag.child !== '0' && <i data-id={tag.id} className='bx bxs-folder' style={{color: `${tag.boja}`}}></i>}
-            {tag.child !== '0' && tag.naziv}
-          </div>
-        )
-      }
-      return '';
-    })
+          return null;
+        })}
+      </div>
+    )
+    // tagsList.push(props.tags.map(tag => {
+    //   if (tag.parent === parentId) {
+    //     // const checkedHandler = ev => {
+    //     //   if (!ev.target.classList.contains(classes['tag-checkbox__alt'])) {
+    //     //     setTagsWereEdited(true);
+    //     //     setEditedTags(prevState => [...prevState, {id: tag.id, boja: tag.boja, trajanje: ''}])
+    //     //   }
+    //     //   else {
+    //     //     setEditedTags(prevState => prevState.filter(item => item.id !==tag.id));
+    //     //   }
+    //     // }
+    //     return (
+    //       // <div key={tag.id} data-id={tag.id} className={classes['tag-checkbox']}>
+    //       //
+    //       //   {tag.naziv}
+    //       //   {tag.child !== '0' && <i className='bx bxs-folder-open'></i>}
+    //       //   <i className='bx bxs-plus-circle'></i>
+    //       // </div>
+    //       <div key={tag.id} className={classes['check_list_item']}>
+    //         <div>{tag.naziv}</div>
+    //         <div>
+    //           {tag.child !== '0' && <i className='bx bxs-folder-open'></i>}
+    //           <i className='bx bxs-plus-circle'></i>
+    //         </div>
+    //       </div>
+    //     )
+    //   }
+    //   return '';
+    // }));
     setTagsCheck(tagsList);
   },[editedTags, props.tags]);
 

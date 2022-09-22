@@ -1,3 +1,11 @@
+.container {
+  padding-top: 2rem;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
 .btn-primary {
   background: #42A5F5;
   color: #fff;
@@ -15,8 +23,14 @@
   padding: 10px;
 }
 
+.right_section {
+  width: calc(100% - 15rem);
+  margin-left: 1rem;
+}
+
 .top_section{
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
@@ -50,11 +64,9 @@
 }
 
 .logged_user{
-  margin-right: 6rem;
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  right: 1rem;
   font-weight: bold;
 }
 
@@ -64,7 +76,6 @@
   position: relative;
   flex-direction: column;
   justify-content: space-between;
-  width: 50%;
   min-height: 14rem;
   background-color: white;
   border-radius: var(--border-radius-medium);
