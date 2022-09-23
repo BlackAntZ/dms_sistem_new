@@ -4,30 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55f3408c-a7f4-4ad4-84da-063e7f616cf0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/UI/Tooltip/ToolTip.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/UI/Tooltip/ToolTip.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/33ff5030-f79e-4370-b7f0-bc69d1f7c0ce.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/33ff5030-f79e-4370-b7f0-bc69d1f7c0ce.xml" afterDir="false" />
+    <list default="true" id="55f3408c-a7f4-4ad4-84da-063e7f616cf0" name="Changes" comment="'added tag tree'">
+      <change afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/AddEditUserTagModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/UI/Table/EntriesAndSearch.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/UI/Table/EntriesAndSearch.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/login/AdditionalFieldsModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/login/AdditionalFieldsModal.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/users/UsersFilter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/users/UsersFilter.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Input/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Input/Input.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Input/Input.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Input/Input.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/Task/AddNewTaskModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Task/AddNewTaskModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/Task/AddNewTaskModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Task/AddNewTaskModal.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Input/LoginInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Input/LoginInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Input/LoginInput.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Input/LoginInput.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/Templates/InputModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Templates/InputModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/Templates/InputModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Templates/InputModal.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditTagsModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditTagsModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditTagsModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditTagsModal.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditUserModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditUserModal.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditUserModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditUserModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Table/ItemTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Table/ItemTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Table/ItemTable.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Table/ItemTable.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Tooltip/ToolTip.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Tooltip/ToolTip.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/control-panel/DashBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/control-panel/DashBoard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/control-panel/DashBoard.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/control-panel/DashBoard.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/control-panel/TagList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/control-panel/TagList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/control-panel/TagList.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/control-panel/TagList.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/login/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/login/Login.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/login/Login.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/users/EntriesAndSearch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/users/EntriesAndSearch.module.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/users/ListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/users/ListItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/users/ListItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/users/ListItem.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/odjeljenja.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/odjeljenja.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/users/PageButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Table/PageButtons.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/users/PageButtons.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Table/PageButtons.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/users/UsersList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/users/UsersList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/users/UsersList.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/users/UsersList.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,10 +81,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/components/UI/Table" />
+      <recent name="$PROJECT_DIR$/client/src/components/login" />
       <recent name="$PROJECT_DIR$/client/src/components/UI/Modal/Templates" />
       <recent name="$PROJECT_DIR$/client/src/components/UI/Modal/Tag" />
       <recent name="$PROJECT_DIR$/client/src/components/UI/Modal/Task" />
-      <recent name="$PROJECT_DIR$/client/src/components/UI/Modal/User" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -90,8 +99,16 @@
       <workItem from="1663593529548" duration="2110000" />
       <workItem from="1663654881030" duration="20581000" />
       <workItem from="1663740642729" duration="23332000" />
-      <workItem from="1663826839249" duration="14510000" />
+      <workItem from="1663826839249" duration="39992000" />
     </task>
+    <task id="LOCAL-00001" summary="'added tag tree'">
+      <created>1663844530294</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1663844530294</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +124,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="'added tag tree'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'added tag tree'" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

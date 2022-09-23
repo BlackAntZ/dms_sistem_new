@@ -78,14 +78,25 @@ const LoginInput = React.forwardRef((props, ref) => {
     resetInputs();
   },[props.reset]);
 
+  const onFocusHandler = () => {
+    if (inputRef.current['type'] === 'text') inputRef.current['type'] = 'date';
+  }
+
+  const onLeaveHandler = () => {
+    if (inputRef.current['type'] === 'date') inputRef.current['type'] = 'text';
+  }
+
   return (
     <div className={classes["input-field"]}>
       <i className={`bx ${props.class}`}></i>
-      <input value={props.value} spellCheck={"false"} onChange={changeHandler} ref={inputRef} name={props.name} type={props.type} placeholder={props.placeholder}/>
+      {props.name === 'datum_rodj' && <input className={classes['input_date']} id={props.id} value={props.value} spellCheck={"false"} onChange={changeHandler} ref={inputRef} name={props.name} type={props.type} onBlur={onLeaveHandler} onFocus={onFocusHandler} placeholder={props.placeholder}/>}
+      {props.name !== 'datum_rodj' && <input id={props.id} value={props.value} spellCheck={"false"} onChange={changeHandler} ref={inputRef}
+              name={props.name} type={props.type} placeholder={props.placeholder}/>}
       {formData.error && inputRef.current['value'].length > 0 && <i className={`bx bx-x-circle ${classes['x-circle']}`}></i>}
       {formData.error === false && inputRef.current['value'].length > 0 && <i className={`bx bx-check-circle ${classes['y-circle']}`}></i>}
       {formData.error && inputRef.current['value'].length > 0 && <div className={classes['error-div']}>{formData.message}</div>}
       {inputEmpty && <div className={classes['empty-div']}>{`Unesite ${props.placeholder.toLowerCase()}!`}</div>}
+      {props.must && !inputEmpty && inputRef.current && inputRef.current['value'].length === 0 && <div className={classes.alert}><i className={`bx bx-alarm-exclamation`}></i>Obavezno polje</div>}
     </div>
   )
 })

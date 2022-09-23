@@ -21,7 +21,8 @@ const PageButtons = props => {
       <div key={number} onClick={number === props.selectedPage ? ()=>{} : changePageHandler.bind(null, number)} className={`${classes['page-number']} ${number === props.selectedPage ? classes['page-number__selected'] : ''}`}>{number}</div>
     )
   })
-  const endDiv = <div onClick={props.selectedPage === pages ? ()=>{} : changePageHandler.bind(null,'ADD')} className={props.selectedPage !== pages ? `${classes['page-number']}` : `${classes['previous__disabled']}`}>Sljedeca</div>;
+
+  content.push(<div key={'end_div'} onClick={props.selectedPage === pages ? ()=>{} : changePageHandler.bind(null,'ADD')} className={props.selectedPage !== pages ? `${classes['page-number']}` : `${classes['previous__disabled']}`}>Sljedeca</div>);
 
   return (
     <div className={classes['table-footer']}>
@@ -29,7 +30,6 @@ const PageButtons = props => {
       <div ref={divOfTablePageNumbers} className={classes['page-choice']}>
         {props.selectedPage === 1 ? <div className={classes['previous__disabled']}>Prethodna</div> : <div onClick={changePageHandler.bind(null,'SUB')} className={classes['page-number']}>Prethodna</div>}
         {content}
-        {endDiv}
       </div>
     </div>
   )

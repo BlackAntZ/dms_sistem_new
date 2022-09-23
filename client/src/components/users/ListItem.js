@@ -13,7 +13,7 @@ const ListItem = props => {
       <div>{props.email}</div>
       <div>
         {props.odjeljenja.map(tag =>
-          <ToolTip key={tag.id} text={tag.trajanje}>
+          <ToolTip key={tag.id} text={tag.boja}>
             <i style={{color: `${tag.boja}`}} className='bx bxs-purchase-tag'></i>
           </ToolTip>
         )}

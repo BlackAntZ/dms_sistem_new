@@ -1,0 +1,15 @@
+.entries-div {
+  margin: 1rem 1rem 0.5rem;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.entries-div select {
+  font-size: 1rem;
+  border-color: var(--color-gray-200);
+  background-color: transparent;
+  border-radius: var(--border-radius-small);
+  margin-inline: 0.2rem;
+}

@@ -6,12 +6,12 @@
 }
 
 .tooltip {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   position: absolute;
   background-color: #14213D;
   color: white;
   border-radius: var(--border-radius-small);
-  padding: 0.2rem;
+  padding: 0.1rem 0.2rem;
   display: none;
   left: 50%;
   translate: 10%;

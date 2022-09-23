@@ -1,3 +1,8 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
 .table_div {
   position: relative;
   color: var(--color-gray-500);
@@ -30,6 +35,16 @@
   margin-left: var(--space-2);
 }
 
+.table_item .normal__arrow {
+  font-size: var(--space-2);
+  color: var(--color-gray-200);
+}
+
+.table_item .arrow__selected {
+  font-size: var(--space-3);
+  color: var(--color-gray-500);
+}
+
 .users-list {
   overflow-y: scroll;
 }
@@ -52,7 +67,8 @@
   background-color: var(--color-gray-200);
 }
 
-.table_item {
+.table_item,
+.users-list > li {
   padding: var(--space-2) var(--space-2);
   padding-right: 0;
   margin: var(--space-1) 0;
@@ -63,18 +79,4 @@
 
 .users-list li:hover {
   background-color: var(--color-gray-100);
-}
-
-.users-list li > div {
-  text-align: center;
-}
-
-.table_div .normal__arrow {
-  font-size: var(--space-2);
-  color: var(--color-gray-200);
-}
-
-.table_div .arrow__selected {
-  font-size: var(--space-3);
-  color: var(--color-gray-500);
 }

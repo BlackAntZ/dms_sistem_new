@@ -22,43 +22,43 @@ const EditTagsModal = props => {
   }
 
   const [location, setLocation] = useState(null);
-  const [tagsCheck, setTagsCheck] = useState('');
+  const [tagsCheck, setTagsCheck] = useState([]);
+
+  const checkedHandler = () => {
+    props.onAddEdit();
+  }
+
+  const openFolderHandler = ev => {
+    setSelectedParent(ev.target.dataset.id);
+    setSelectedTag(0);
+  }
 
   const drawTagCheckboxes = useCallback(parentId => {
-    // const openFolderHandler = ev => {
-    //   setSelectedParent(ev.target.dataset.id);
-    //   setSelectedTag(0);
-    // }
     let tagsList = [];
     tagsList.push(
-      <div className={classes['check_list_item']} key={0}>
+      <div className={classes['check_list_item']} key={'headings'}>
         <div>Naziv</div>
         <div>Opcije</div>
       </div>
     );
     tagsList.push(
-      <div className={classes['check_list_div']}>
+      <div key={'check_list_div'} className={classes['check_list_div']}>
         {props.tags.map(tag => {
           if (tag.parent === parentId) {
-            // const checkedHandler = ev => {
-            //   if (!ev.target.classList.contains(classes['tag-checkbox__alt'])) {
-            //     setTagsWereEdited(true);
-            //     setEditedTags(prevState => [...prevState, {id: tag.id, boja: tag.boja, trajanje: ''}])
-            //   }
-            //   else {
-            //     setEditedTags(prevState => prevState.filter(item => item.id !==tag.id));
-            //   }
-            // }
+            const userTagCheck = props.userTags.findIndex(tagI => tagI.id === tag.id) !== -1;
             return (
-              <div key={tag.id} className={classes['check_list_item']}>
+              <div key={tag.id} className={`${classes['check_list_item']} ${userTagCheck ? classes['check_list_item__selected'] : ''}`}>
                 <div>{tag.naziv}</div>
                 <div>
                   {tag.child !== '0' && <ToolTip text={"Otvori pododjeljenja"}>
-                    <i className='bx bxs-folder-open'></i>
+                    <i onClick={openFolderHandler} data-id={tag.id} className='bx bxs-folder-open'></i>
                   </ToolTip>}
-                  <ToolTip text={"Dodijeli korisniku"}>
-                    <i className='bx bxs-plus-circle'></i>
-                  </ToolTip>
+                  {!userTagCheck && <ToolTip text={"Dodijeli korisniku"}>
+                    <i onClick={checkedHandler} className='bx bxs-plus-circle'></i>
+                  </ToolTip>}
+                  {userTagCheck && <ToolTip text={"Uredi korisnicko odjeljenje"}>
+                    <i onClick={checkedHandler} className='bx bxs-edit'></i>
+                  </ToolTip>}
                 </div>
               </div>
             )
@@ -67,37 +67,8 @@ const EditTagsModal = props => {
         })}
       </div>
     )
-    // tagsList.push(props.tags.map(tag => {
-    //   if (tag.parent === parentId) {
-    //     // const checkedHandler = ev => {
-    //     //   if (!ev.target.classList.contains(classes['tag-checkbox__alt'])) {
-    //     //     setTagsWereEdited(true);
-    //     //     setEditedTags(prevState => [...prevState, {id: tag.id, boja: tag.boja, trajanje: ''}])
-    //     //   }
-    //     //   else {
-    //     //     setEditedTags(prevState => prevState.filter(item => item.id !==tag.id));
-    //     //   }
-    //     // }
-    //     return (
-    //       // <div key={tag.id} data-id={tag.id} className={classes['tag-checkbox']}>
-    //       //
-    //       //   {tag.naziv}
-    //       //   {tag.child !== '0' && <i className='bx bxs-folder-open'></i>}
-    //       //   <i className='bx bxs-plus-circle'></i>
-    //       // </div>
-    //       <div key={tag.id} className={classes['check_list_item']}>
-    //         <div>{tag.naziv}</div>
-    //         <div>
-    //           {tag.child !== '0' && <i className='bx bxs-folder-open'></i>}
-    //           <i className='bx bxs-plus-circle'></i>
-    //         </div>
-    //       </div>
-    //     )
-    //   }
-    //   return '';
-    // }));
     setTagsCheck(tagsList);
-  },[editedTags, props.tags]);
+  },[editedTags, props.tags, props.userTags]);
 
   const locationRecursion = useCallback((id, content = []) => {
     if (id === '0') {
@@ -150,8 +121,8 @@ const EditTagsModal = props => {
   }
 
   return (
-    <InputModal heading={'Uredi korisnicka odjeljenja'} index={'4'} closeModal={confirmCloseModal}>
-      {openConfirm && <ConfirmModal index={5} closeModal={props.closeModal} cancelClose={closeConfirmHandler}></ConfirmModal>}
+    <InputModal heading={'Uredi korisnicka odjeljenja'} index={'5'} closeModal={confirmCloseModal}>
+      {openConfirm && <ConfirmModal index={'6'} closeModal={props.closeModal} cancelClose={closeConfirmHandler}></ConfirmModal>}
       <form onSubmit={submitFormHandler}>
         <div className={classes['tag-buttons']}>
           {editedTags && editedTags.map(tag =>

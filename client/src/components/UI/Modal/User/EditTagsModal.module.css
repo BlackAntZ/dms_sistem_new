@@ -21,7 +21,7 @@
 
 .tags-div {
   width: 100%;
-  height: 10rem;
+  height: 20rem;
   position: relative;
   border: 2px solid var(--color-gray-500);
   border-radius: var(--border-radius-small);
@@ -93,15 +93,28 @@
 }
 
 .check_list_item i {
-  font-size: 1rem;
-  color: darkgreen;
+  font-size: 1.4rem;
+  color: var(--color-primary-800);
   margin-inline: 0.2rem;
   cursor: pointer;
+}
+
+.check_list_item__selected {
+  background-color: #9abe9b;
 }
 
 .check_list_div {
   height: calc(100% - 1.4rem);
   overflow-y: scroll;
+}
+
+.check_list_div > .check_list_item {
+  height: 2rem;
+  padding-block: 0.3rem;
+}
+
+.check_list_div > .check_list_item:nth-of-type(2n) {
+  background-color: var(--color-primary-50);
 }
 
 .check_list_div::-webkit-scrollbar {

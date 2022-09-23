@@ -5,11 +5,13 @@ import EditTagsModal from "./EditTagsModal";
 import {useState} from "react";
 import ConfirmModal from "../Templates/ConfirmModal";
 import InputModal from "../Templates/InputModal";
+import AddEditUserTagModal from "./AddEditUserTagModal";
 
 const EditUserModal = props => {
   const [formData, setFormData] = useState({id: props.data.id, error: false});
   const [openTagsModal, setOpenTagsModal] = useState(false);
   const [openConfirm, setOpenConfirm] = useState(false);
+  const [openAddEditTagModal, setOpenAddEditTagModal] = useState(false);
 
   const postUpdateUserData = async () => {
     const response = await fetch('/main', {
@@ -61,10 +63,19 @@ const EditUserModal = props => {
     setOpenConfirm(false);
   }
 
+  const openAddEditTagModalHandler = () => {
+    setOpenAddEditTagModal(true);
+  }
+
+  const closeAddEditTagModalHandler = () => {
+    setOpenAddEditTagModal(false);
+  }
+
   return (
     <InputModal heading={'Uredi korisnicka odjeljenja'} index={'4'} closeModal={confirmCloseModal}>
       {openConfirm && <ConfirmModal index={5} closeModal={props.closeModal} cancelClose={closeConfirmHandler}></ConfirmModal>}
-      {openTagsModal && <EditTagsModal tags={props.tags} userTags={props.data.odjeljenja} closeModal={closeTagsModalHandler}></EditTagsModal>}
+      {openTagsModal && <EditTagsModal onAddEdit={openAddEditTagModalHandler} tags={props.tags} userTags={props.data.odjeljenja} closeModal={closeTagsModalHandler}></EditTagsModal>}
+      {openAddEditTagModal && <AddEditUserTagModal closeModal={closeAddEditTagModalHandler}></AddEditUserTagModal>}
       <form onSubmit={submitHandler} className={classes['modal']}>
         <Input edit={true} onSubmit={validateInputHandler} value={props.data.name} name='ime' type='text' label='Ime:'></Input>
         <Input edit={true} onSubmit={validateInputHandler} value={props.data.last_name} name='prezime' type='text' label='Prezime:'></Input>

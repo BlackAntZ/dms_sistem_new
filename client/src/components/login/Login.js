@@ -1,12 +1,13 @@
 import classes from "./Login.module.css";
 import {useRef, useState} from "react";
 import LoginInput from "../UI/Input/LoginInput";
+import AdditionalFieldsModal from "./AdditionalFieldsModal";
 
 const Login = props => {
   const [loginData, setLoginData] = useState({korime: {value: '', error: true}, sifra: {value: '', error: true}});
-  const [signupData, setSignupData] = useState({ime: {value: '', error: true}, prezime: {value: '', error: true}, korime: {value: '', error: true}, email: {value: '', error: true}, sifra: {value: '', error: true}, potvrdasifra: {value: '', error: true}});
+  const [signupData, setSignupData] = useState({ime: {value: '', error: true}, prezime: {value: '', error: true}, sign_korime: {value: '', error: true}, email: {value: '', error: true}, sifra_sign: {value: '', error: true}, potvrdasifra: {value: '', error: true}});
   const [resetLogin, setResetLogin] = useState(false);
-  const [openAdditionalFilends, setOpenAdditionalFilends] = useState(false);
+  const [additionalDataModal, setAdditionalDataModal] = useState(false);
   const container = useRef();
   const userNameLogin = useRef();
   const passwordLogin = useRef();
@@ -22,7 +23,7 @@ const Login = props => {
     container.current["classList"].add(classes['sign-up-mode']);
   }
 
-  //Trigger return animation when go to login button is clicked
+  //Trigger return animation when go to log in button is clicked
   const singInSwitchHandler = () => {
     container.current["classList"].remove(classes['sign-up-mode']);
   }
@@ -113,7 +114,7 @@ const Login = props => {
     postFormData(signupData, 'signup').then(r => {
       console.log(r);
       if (r === 'Korisnik dodan') {
-        setSignupData({ime: {value: '', error: true}, prezime: {value: '', error: true}, korime: {value: '', error: true}, email: {value: '', error: true}, sifra: {value: '', error: true}, potvrdasifra: {value: '', error: true}});
+        setSignupData({ime: {value: '', error: true}, prezime: {value: '', error: true}, sign_korime: {value: '', error: true}, email: {value: '', error: true}, sifra_sign: {value: '', error: true}, potvrdasifra: {value: '', error: true}});
         container.current["classList"].remove(classes['sign-up-mode']);
         setResetLogin(prevState => !prevState);
       }
@@ -126,45 +127,36 @@ const Login = props => {
     if (signupData.sifra.value.trim().length === 0) passwordSignUp.current['empty']();
   }
 
-  const openAdditionalFilendsHandler = () => {
-    setOpenAdditionalFilends(true);
+  //Open modal for additional registration data
+  const openAdditionalFieldsModalHandler = () => {
+    setAdditionalDataModal(true);
+  }
+
+  const closeAdditionalFieldsModalHandler = () => {
+    setAdditionalDataModal(false);
   }
 
   return (
     <div ref={container} className={classes['container']}>
+      {additionalDataModal && <AdditionalFieldsModal closeModal={closeAdditionalFieldsModalHandler}></AdditionalFieldsModal>}
       <div className={classes["forms-container"]}>
         <div className={classes["signin-signup"]}>
           <form onSubmit={loginHandler} className={classes["sign-in-form"]}>
             <h2 className={classes["title"]}>Prijavite se</h2>
-            <LoginInput reset={resetLogin} ref={userNameLogin} value={loginData.korime.value} name={'korime'} onChange={collectFormDataHandler} type={'text'} placeholder={'Korisničko ime'} class={'bxs-user'}></LoginInput>
-            <LoginInput reset={resetLogin} ref={passwordLogin} value={loginData.sifra.value} name={'sifra'} onChange={collectFormDataHandler} type={'password'} placeholder={'Šifra'} class={'bxs-lock-alt'}></LoginInput>
+            <LoginInput reset={resetLogin} ref={userNameLogin} value={loginData.korime.value} name={'korime'} id={'korime'} onChange={collectFormDataHandler} type={'text'} placeholder={'Korisničko ime'} class={'bxs-user'}></LoginInput>
+            <LoginInput reset={resetLogin} ref={passwordLogin} value={loginData.sifra.value} name={'sifra'} id={'sifra'} onChange={collectFormDataHandler} type={'password'} placeholder={'Šifra'} class={'bxs-lock-alt'}></LoginInput>
             <button type={"submit"} className={`${classes["btn"]} ${classes['flex']}`}>Prijavi se</button>
             <p className={classes["social-text"]}></p>
           </form>
           <form onSubmit={signinHandler} className={classes["sign-up-form"]}>
             <h2 className={classes["title"]}>Napravi novi nalog</h2>
-            <div className={classes['signup_fields_div']}>
-              <LoginInput reset={resetLogin} ref={nameSignUp} value={signupData.ime.value} alt={true} onChange={collectFormDataHandler} name={'ime'} type={'text'} placeholder={'Ime'} class={'bxs-user'}></LoginInput>
-              <LoginInput reset={resetLogin} ref={lastNameSignUp} value={signupData.prezime.value} alt={true} onChange={collectFormDataHandler} name={'prezime'} type={'text'} placeholder={'Prezime'} class={'bxs-user'}></LoginInput>
-              <LoginInput reset={resetLogin} ref={userNameSignUp} value={signupData.korime.value} alt={true} onChange={collectFormDataHandler} name={'korime'} type={'text'} placeholder={'Korisničko ime'} class={'bxs-user-pin'}></LoginInput>
-              <LoginInput reset={resetLogin} ref={emailSignUp} value={signupData.email.value} alt={true} onChange={collectFormDataHandler} name={'email'} type={'email'} placeholder={'Email'} class={'bxs-envelope'}></LoginInput>
-              <LoginInput reset={resetLogin} ref={passwordSignUp} value={signupData.sifra.value} alt={true} onChange={collectFormDataHandler} name={'sifra'} type={'password'} placeholder={'Šifra'} class={'bxs-lock-alt'}></LoginInput>
-              <LoginInput reset={resetLogin} sifra={signupData.sifra.value} selectPw={selectPasswordHandler} ref={passwordSignUpConfirm} value={signupData.potvrdasifra.value} alt={true} onChange={collectFormDataHandler} name={'potvrdasifra'} type={'password'} placeholder={'Ponovo unesite šifru'} class={'bxs-lock-alt'}></LoginInput>
-              <div onClick={openAdditionalFilendsHandler} className={classes['additional_fields_button']}>Otvori dodatna polja <i className='bx bx-down-arrow'></i></div>
-              {openAdditionalFilends && <div className={classes['additional_fields']}>
-                <LoginInput reset={resetLogin} ref={nameSignUp} value={''} alt={true} onChange={collectFormDataHandler}
-                            name={'grad'} type={'text'} placeholder={'Grad'} class={'bxs-buildings'}></LoginInput>
-                <LoginInput reset={resetLogin} ref={nameSignUp} value={''} alt={true} onChange={collectFormDataHandler}
-                            name={'postanski_broj'} type={'text'} placeholder={'Postanski broj'}
-                            class={'bxs-business'}></LoginInput>
-                <LoginInput reset={resetLogin} ref={lastNameSignUp} value={''} alt={true}
-                            onChange={collectFormDataHandler} name={'drzava'} type={'text'} placeholder={'Drzava'}
-                            class={'bxs-map'}></LoginInput>
-                <LoginInput reset={resetLogin} ref={userNameSignUp} value={''} alt={true}
-                            onChange={collectFormDataHandler} name={'birthday'} type={'date'}
-                            placeholder={'Datum rodjenja'} class={'bxs-time'}></LoginInput>
-              </div>}
-            </div>
+            <LoginInput must={true} reset={resetLogin} ref={nameSignUp} value={signupData.ime.value} alt={true} onChange={collectFormDataHandler} id={'ime'} name={'ime'} type={'text'} placeholder={'Ime'} class={'bxs-user'}></LoginInput>
+            <LoginInput must={true} reset={resetLogin} ref={lastNameSignUp} value={signupData.prezime.value} alt={true} onChange={collectFormDataHandler} id={'prezime'} name={'prezime'} type={'text'} placeholder={'Prezime'} class={'bxs-user'}></LoginInput>
+            <LoginInput must={true} reset={resetLogin} ref={userNameSignUp} value={signupData.sign_korime.value} alt={true} onChange={collectFormDataHandler} id={'sign_korime'}  name={'sign_korime'} type={'text'} placeholder={'Korisničko ime korisnika'} class={'bxs-user-pin'}></LoginInput>
+            <LoginInput must={true} reset={resetLogin} ref={emailSignUp} value={signupData.email.value} alt={true} onChange={collectFormDataHandler} name={'email'} id={'email'} type={'email'} placeholder={'Email'} class={'bxs-envelope'}></LoginInput>
+            <LoginInput must={true} reset={resetLogin} ref={passwordSignUp} value={signupData.sifra_sign.value} alt={true} onChange={collectFormDataHandler} name={'sifra_sign'} id={'sifra_sign'} type={'password'} placeholder={'Šifra'} class={'bxs-lock-alt'}></LoginInput>
+            <LoginInput must={true} reset={resetLogin} sifra={signupData.sifra_sign.value} selectPw={selectPasswordHandler} ref={passwordSignUpConfirm} value={signupData.potvrdasifra.value} alt={true} onChange={collectFormDataHandler} name={'potvrdasifra'} id={'potvrdasifra'} type={'password'} placeholder={'Ponovo unesite šifru'} class={'bxs-lock-alt'}></LoginInput>
+            <div onClick={openAdditionalFieldsModalHandler} className={classes['additional_fields_button']}>Otvori dodatna polja <i className='bx bx-down-arrow'></i></div>
             <button type={"submit"} className={`${classes["btn"]} ${classes['flex']}`}>Registruj se</button>
             <p className={classes["social-text"]}></p>
           </form>

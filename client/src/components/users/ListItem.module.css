@@ -1,5 +1,6 @@
 .document-row {
   background-color: white;
+  grid-template-columns: repeat(5,1fr);
 }
 
 .document-row > div:nth-last-of-type(2) {

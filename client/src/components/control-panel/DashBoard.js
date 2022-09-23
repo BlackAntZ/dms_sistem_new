@@ -169,11 +169,11 @@ const DashBoard = () => {
                 <h3>Spisak zadataka</h3>
                 <Button open={openAddNewTaskModalHandler} type={'submit'}>Dodaj Novi Zadatak</Button>
               </div>
-              <ItemTable columns={[{id: '1', name: 'name', sort: true, text: 'Naziv'},{id: '2', name: 'broj_datoteka', sort: true, text: 'Broj datoteka'},{id: '3', sort: false, text: 'Opcije'}]}>
-                {zadaci && zadaci.map(zadatak => {
-                  return <TaskItem key={zadatak.id} naziv={zadatak.naziv} status={zadatak.status} columns={'3'}></TaskItem>
-                })}
-              </ItemTable>
+              {/*<ItemTable columns={[{id: '1', name: 'name', sort: true, text: 'Naziv'},{id: '2', name: 'broj_datoteka', sort: true, text: 'Broj datoteka'},{id: '3', sort: false, text: 'Opcije'}]}>*/}
+              {/*  {zadaci && zadaci.map(zadatak => {*/}
+              {/*    return <TaskItem key={zadatak.id} naziv={zadatak.naziv} status={zadatak.status} columns={'3'}></TaskItem>*/}
+              {/*  })}*/}
+              {/*</ItemTable>*/}
             </section>
           </div>
         </div>

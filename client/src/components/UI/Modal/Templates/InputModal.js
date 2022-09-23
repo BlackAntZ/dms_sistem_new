@@ -16,7 +16,7 @@ const Modal = props => {
   },[])
 
   return (
-    <div style={{zIndex: props.index}} className={modalClasses}>
+    <div style={{zIndex: props.index, backgroundColor: props.alt ? 'white' : ''}} className={modalClasses}>
       <div className={classes['modal__header']}>
         <h2>
           {props.heading}
@@ -34,7 +34,7 @@ const InputModal = props => {
   return (
     <>
       {ReactDOM.createPortal(<BackDrop index={props.index} closeModal={props.closeModal}></BackDrop>, document.getElementById('overlays'))}
-      {ReactDOM.createPortal(<Modal heading={props.heading} index={props.index} closeModal={props.closeModal}>{props.children}</Modal>, document.getElementById('overlays'))}
+      {ReactDOM.createPortal(<Modal alt={props.alt} heading={props.heading} index={props.index} closeModal={props.closeModal}>{props.children}</Modal>, document.getElementById('overlays'))}
     </>
   )
 }
