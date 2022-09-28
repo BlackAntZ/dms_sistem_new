@@ -5,54 +5,29 @@ import React, {useRef, useState} from "react";
 import LoginInput from "../UI/Input/LoginInput";
 
 const AdditionalFieldsModal = props => {
-  // const [formData, setFormData] = useState({parent: {value: `${props.tag}`, error: false}, child: {value: '0', error: false}, naziv: {value: '', error: true}, boja: {value: '', error: true}});
-  // const [pickedColor, setPickedColor] = useState(false);
+  const [formData, setFormData] = useState({
+    grad: {value: '', error: false},
+    postanski_broj: {value: '', error: false},
+    drzava: {value: '', error: false},
+    datum_rodj: {value: '', error: false}});
   const gradSignup = useRef();
   const postanskiBroj = useRef();
   const drzava = useRef();
   const datumRodj = useRef();
 
 
-  const validateInputHandler = (name, data) => {
-  //   const transformData = {};
-  //   transformData[name] = {value: data.term, error: data.error || false};
-  //   return setFormData(prevState => {return {...prevState, ...transformData}});
+  const validateInputHandler = (type, name, data) => {
+    const transformData = {};
+    transformData[name] = {value: data.term, error: data.error || false};
+    if (type === 'login') {
+      return setFormData(prevState => {return {...prevState, ...transformData}});
+    }
+    return setFormData(prevState => {return {...prevState, ...transformData}});
   }
-  //
-  // const postTagData = async () => {
-  //   props.closeModal();
-  //   const transformedData = {};
-  //   for (const dataKey in formData) {
-  //     transformedData[dataKey] = formData[dataKey].value;
-  //   }
-  //   const responose = await fetch('admin/tag', {
-  //     method: 'POST',
-  //     body: JSON.stringify(transformedData),
-  //     headers : {'Content-Type': 'application/json'}
-  //   })
-  //   return responose.json();
-  // }
-  //
+
   const submitTagHandler = ev => {
     ev.preventDefault();
-  //   for (const loginDataKey in formData) {
-  //     if (formData[loginDataKey].error) {
-  //       if (loginDataKey === 'naziv') {
-  //         tagName.current['focus']();
-  //         if (formData[loginDataKey].value.trim().length === 0) tagName.current['empty']();
-  //         return;
-  //       }
-  //       if (loginDataKey === 'boja') {
-  //         setPickedColor(true);
-  //         bojaRef.current['click']();
-  //         return;
-  //       }
-  //     }
-  //   }
-  //   postTagData().then(r => {
-  //     console.log(r);
-  //     if (r === 'Uspjesno dodano') props.onAdd();
-  //   })
+    props.closeModal(formData);
   }
 
   return (

@@ -7,10 +7,14 @@ async function signup(req, res, next) {
   const enteredData = {
     ime: req.body.ime,
     prezime: req.body.prezime,
-    korime: req.body.korime,
+    korime: req.body.sign_korime,
     email: req.body.email,
-    sifra: req.body.sifra,
-    potvrdasifra: req.body.potvrdasifra
+    sifra: req.body.sifra_sign,
+    potvrdasifra: req.body.potvrdasifra,
+    grad: req.body.grad,
+    postanski_broj: req.body.postanski_broj,
+    drzava: req.body.drzava,
+    datum_rodj: req.body.datum_rodj
   };
 
   if (
@@ -39,11 +43,15 @@ async function signup(req, res, next) {
   }
 
   const user = new User(
-    req.body.korime,
-    req.body.sifra,
+    req.body.sign_korime,
+    req.body.sifra_sign,
     req.body.ime,
     req.body.prezime,
-    req.body.email
+    req.body.email,
+    req.body.grad,
+    req.body.postanski_broj,
+    req.body.drzava,
+    req.body.datum_rodj
   );
 
   try {

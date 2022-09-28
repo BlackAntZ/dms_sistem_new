@@ -53,3 +53,12 @@
   font-size: 0.8rem;
   white-space: nowrap;
 }
+
+.alert {
+  color: rgb(203, 61, 61);
+  position: absolute;
+  top: 4.5rem;
+  left: 10%;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}

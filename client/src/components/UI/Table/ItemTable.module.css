@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .table_div {
@@ -9,6 +10,7 @@
   min-height: fit-content;
   border-bottom: 2px solid var(--color-gray-100);
   padding-top: 3rem;
+  white-space: nowrap;
 }
 
 .table_div > div {
@@ -33,6 +35,14 @@
   align-content: center;
   justify-content: center;
   margin-left: var(--space-2);
+}
+
+.table_item > div {
+  border-radius: var(--border-radius-small);
+}
+
+.table_item > div:hover {
+  background-color: var(--color-gray-100);
 }
 
 .table_item .normal__arrow {
@@ -69,12 +79,15 @@
 
 .table_item,
 .users-list > li {
-  padding: var(--space-2) var(--space-2);
-  padding-right: 0;
+  padding: var(--space-2);
   margin: var(--space-1) 0;
   display: grid;
   align-items: center;
   border-radius: var(--border-radius-medium);
+}
+
+.users-list > li {
+  padding-right: 0;
 }
 
 .users-list li:hover {

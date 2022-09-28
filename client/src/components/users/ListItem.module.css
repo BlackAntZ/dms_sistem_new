@@ -1,6 +1,12 @@
 .document-row {
   background-color: white;
-  grid-template-columns: repeat(5,1fr);
+  grid-template-columns: repeat(6,1fr);
+}
+
+.document-row > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .document-row > div:nth-last-of-type(2) {
@@ -13,13 +19,12 @@
   font-size: 1.2rem;
 }
 
-.trash-button {
-  color: var(--color-error-500);
+.info-button {
+  color: #856f00;
   font-size: 1.2rem;
 }
 
-.document-row .options-div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.trash-button {
+  color: var(--color-error-500);
+  font-size: 1.2rem;
 }

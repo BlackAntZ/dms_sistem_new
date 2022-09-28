@@ -5,7 +5,18 @@ import AdditionalFieldsModal from "./AdditionalFieldsModal";
 
 const Login = props => {
   const [loginData, setLoginData] = useState({korime: {value: '', error: true}, sifra: {value: '', error: true}});
-  const [signupData, setSignupData] = useState({ime: {value: '', error: true}, prezime: {value: '', error: true}, sign_korime: {value: '', error: true}, email: {value: '', error: true}, sifra_sign: {value: '', error: true}, potvrdasifra: {value: '', error: true}});
+  const [signupData, setSignupData] = useState(
+    {ime: {value: '', error: true},
+      prezime: {value: '', error: true},
+      sign_korime: {value: '', error: true},
+      email: {value: '', error: true},
+      sifra_sign: {value: '', error: true},
+      potvrdasifra: {value: '', error: true},
+      grad: {value: '', error: false},
+      postanski_broj: {value: '', error: false},
+      drzava: {value: '', error: false},
+      datum_rodj: {value: '', error: false}}
+  );
   const [resetLogin, setResetLogin] = useState(false);
   const [additionalDataModal, setAdditionalDataModal] = useState(false);
   const container = useRef();
@@ -36,7 +47,6 @@ const Login = props => {
       return setLoginData(prevState => {return {...prevState, ...transformData}});
     }
     return setSignupData(prevState => {return {...prevState, ...transformData}});
-
   }
 
   //Post fetch request for either login or signup data
@@ -93,7 +103,7 @@ const Login = props => {
           lastNameSignUp.current['focus']();
           if (signupData[sigunpDataKey].value.trim().length === 0) lastNameSignUp.current['empty']();
           return;
-        } else if (sigunpDataKey==='korime') {
+        } else if (sigunpDataKey==='sign_korime') {
           userNameSignUp.current['focus']();
           if (signupData[sigunpDataKey].value.trim().length === 0) userNameSignUp.current['empty']();
           return;
@@ -101,7 +111,7 @@ const Login = props => {
           emailSignUp.current['focus']();
           if (signupData[sigunpDataKey].value.trim().length === 0) emailSignUp.current['empty']();
           return;
-        } else if (sigunpDataKey==='sifra') {
+        } else if (sigunpDataKey==='sifra_sign') {
           passwordSignUp.current['focus']();
           if (signupData[sigunpDataKey].value.trim().length === 0) passwordSignUp.current['empty']();
           return;
@@ -114,7 +124,18 @@ const Login = props => {
     postFormData(signupData, 'signup').then(r => {
       console.log(r);
       if (r === 'Korisnik dodan') {
-        setSignupData({ime: {value: '', error: true}, prezime: {value: '', error: true}, sign_korime: {value: '', error: true}, email: {value: '', error: true}, sifra_sign: {value: '', error: true}, potvrdasifra: {value: '', error: true}});
+        setSignupData(
+          {ime: {value: '', error: true},
+            prezime: {value: '', error: true},
+            sign_korime: {value: '', error: true},
+            email: {value: '', error: true},
+            sifra_sign: {value: '', error: true},
+            potvrdasifra: {value: '', error: true},
+            grad: {value: '', error: false},
+            postanski_broj: {value: '', error: false},
+            drzava: {value: '', error: false},
+            datum_rodj: {value: '', error: false}}
+        );
         container.current["classList"].remove(classes['sign-up-mode']);
         setResetLogin(prevState => !prevState);
       }
@@ -124,7 +145,7 @@ const Login = props => {
   //Select password field and display an error if it is empty
   const selectPasswordHandler = () => {
     passwordSignUp.current['focus']();
-    if (signupData.sifra.value.trim().length === 0) passwordSignUp.current['empty']();
+    if (signupData.sifra_sign.value.trim().length === 0) passwordSignUp.current['empty']();
   }
 
   //Open modal for additional registration data
@@ -132,8 +153,17 @@ const Login = props => {
     setAdditionalDataModal(true);
   }
 
-  const closeAdditionalFieldsModalHandler = () => {
+  const closeAdditionalFieldsModalHandler = (data) => {
     setAdditionalDataModal(false);
+    const transformData = {...signupData, ...data};
+    setSignupData(transformData);
+  }
+
+  const signupArguments = {
+    must: true,
+    reset: resetLogin,
+    onChange: collectFormDataHandler,
+    alt: true
   }
 
   return (
@@ -150,12 +180,14 @@ const Login = props => {
           </form>
           <form onSubmit={signinHandler} className={classes["sign-up-form"]}>
             <h2 className={classes["title"]}>Napravi novi nalog</h2>
-            <LoginInput must={true} reset={resetLogin} ref={nameSignUp} value={signupData.ime.value} alt={true} onChange={collectFormDataHandler} id={'ime'} name={'ime'} type={'text'} placeholder={'Ime'} class={'bxs-user'}></LoginInput>
-            <LoginInput must={true} reset={resetLogin} ref={lastNameSignUp} value={signupData.prezime.value} alt={true} onChange={collectFormDataHandler} id={'prezime'} name={'prezime'} type={'text'} placeholder={'Prezime'} class={'bxs-user'}></LoginInput>
-            <LoginInput must={true} reset={resetLogin} ref={userNameSignUp} value={signupData.sign_korime.value} alt={true} onChange={collectFormDataHandler} id={'sign_korime'}  name={'sign_korime'} type={'text'} placeholder={'Korisničko ime korisnika'} class={'bxs-user-pin'}></LoginInput>
-            <LoginInput must={true} reset={resetLogin} ref={emailSignUp} value={signupData.email.value} alt={true} onChange={collectFormDataHandler} name={'email'} id={'email'} type={'email'} placeholder={'Email'} class={'bxs-envelope'}></LoginInput>
-            <LoginInput must={true} reset={resetLogin} ref={passwordSignUp} value={signupData.sifra_sign.value} alt={true} onChange={collectFormDataHandler} name={'sifra_sign'} id={'sifra_sign'} type={'password'} placeholder={'Šifra'} class={'bxs-lock-alt'}></LoginInput>
-            <LoginInput must={true} reset={resetLogin} sifra={signupData.sifra_sign.value} selectPw={selectPasswordHandler} ref={passwordSignUpConfirm} value={signupData.potvrdasifra.value} alt={true} onChange={collectFormDataHandler} name={'potvrdasifra'} id={'potvrdasifra'} type={'password'} placeholder={'Ponovo unesite šifru'} class={'bxs-lock-alt'}></LoginInput>
+            <LoginInput {...signupArguments} ref={nameSignUp} value={signupData.ime.value}  name={'ime'} type={'text'} placeholder={'Ime'} class={'bxs-user'}></LoginInput>
+            <LoginInput {...signupArguments} ref={lastNameSignUp} value={signupData.prezime.value} name={'prezime'} type={'text'} placeholder={'Prezime'} class={'bxs-user'}></LoginInput>
+            <LoginInput {...signupArguments} ref={userNameSignUp} value={signupData.sign_korime.value} name={'sign_korime'} type={'text'} placeholder={'Korisničko ime korisnika'} class={'bxs-user-pin'}></LoginInput>
+            <LoginInput {...signupArguments} ref={emailSignUp} value={signupData.email.value} name={'email'} type={'email'} placeholder={'Email'} class={'bxs-envelope'}></LoginInput>
+            <LoginInput {...signupArguments} ref={passwordSignUp} value={signupData.sifra_sign.value} name={'sifra_sign'} type={'password'} placeholder={'Šifra'} class={'bxs-lock-alt'}></LoginInput>
+            <LoginInput {...signupArguments} sifra={signupData.sifra_sign.value} selectPw={selectPasswordHandler}
+                        ref={passwordSignUpConfirm} value={signupData.potvrdasifra.value} name={'potvrdasifra'} type={'password'}
+                        placeholder={'Ponovo unesite šifru'} class={'bxs-lock-alt'}></LoginInput>
             <div onClick={openAdditionalFieldsModalHandler} className={classes['additional_fields_button']}>Otvori dodatna polja <i className='bx bx-down-arrow'></i></div>
             <button type={"submit"} className={`${classes["btn"]} ${classes['flex']}`}>Registruj se</button>
             <p className={classes["social-text"]}></p>

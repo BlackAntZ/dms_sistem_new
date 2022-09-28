@@ -114,3 +114,20 @@ a {
 .cursor-pointer {
   cursor: pointer;
 }
+
+html {
+  overflow-y: scroll;
+}
+
+html::-webkit-scrollbar {
+  width: var(--space-3);
+}
+
+
+html::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+html:hover::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-300);
+}

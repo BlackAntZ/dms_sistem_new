@@ -3,18 +3,22 @@ const bcrypt = require('bcryptjs');
 const db = require('../data/data');
 
 class User {
-  constructor(korime, sifra, ime, prezime, email) {
+  constructor(korime, sifra, ime, prezime, email, grad, postanski_broj, drzava, datum_rodj) {
     this.ime = ime;
     this.prezime = prezime;
     this.korime = korime;
     this.email = email;
     this.sifra = sifra;
+    this.grad = grad;
+    this.postanski_broj = postanski_broj;
+    this.drzava = drzava;
+    let today = ''
+    if (datum_rodj && datum_rodj.length > 0) {
+      const split = datum_rodj.split('/');
+      today = `${split[2]}-${split[1]}-${split[0]}`;
+    }
+    this.datum_rodj = today;
   }
-
-  // async findByGroup(groupId) {
-  //   const [result] = await db.getDb().query('select * from users where groupId = (?)', groupId);
-  //   return result;
-  // }
 
   async getUserWithSameEmail() {
     const [result] = await db.getDb().query('select * from korisnici where email = (?)', this.email);
@@ -40,10 +44,14 @@ class User {
       this.prezime,
       this.korime,
       this.email,
-      hashedPassword
+      hashedPassword,
+      this.grad,
+      this.postanski_broj,
+      this.drzava,
+      this.datum_rodj
     ];
 
-    await db.getDb().query('insert into korisnici (ime, prezime, korime, email, password) values (?)', [data]);
+    await db.getDb().query('insert into korisnici (ime, prezime, korime, email, password, grad, postanski_broj, drzava, datum_rodj) values (?)', [data]);
 
   }
 
@@ -81,19 +89,21 @@ class User {
   //   output.taskName = replace[0].taskName;
   //   return output;
   // }
-  //
-  // async getAllUsers() {
-  //   let query = 'select id,name,last_name,groupId from users;'
-  //   const [users] = await db.getDb().query(query);
-  //   const [groups] = await db.getDb().query('select * from groups_u;');
-  //   return {users,groups};
-  // }
-  //
-  // async getAllUsersSolo() {
-  //   let query = 'select * from users;'
-  //   const [users] = await db.getDb().query(query);
-  //   return users;
-  // }
+
+  updateUserData(id, fields, values) {
+    let query = `update korisnici set ${fields.map(field => {
+      return `${field} = (?)`
+    })} where id = (?);`;
+    db.getDb().query(query, [...values, ...id]);
+  }
+
+  async getAllUsers() {
+    let query = 'select * from korisnici;'
+    const [users] = await db.getDb().query(query);
+    const [user_odjeljenja] = await  db.getDb().query('select * from kor_odj');
+    return users.map(user => {
+      return {...user, odjeljenja: user_odjeljenja.filter(odjeljenje => odjeljenje["korisnik_id"] === user.id)}    });
+  }
   //
   // async getUserPrivs (input) {
   //   const [response] = await db.getDb().query('select u.name, u.last_name as "last name",p.naziv as privilegije from userPrava up join users u on up.user_id = u.id join prava p on up.prava_id = p.id where u.email = (?);', input);

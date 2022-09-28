@@ -32,7 +32,7 @@ const EntriesAndSearch = props => {
         <input onChange={searchBarInputHandler} ref={tableSearchBarElement} type="text" id="table-search" name="table-search"></input>
       </div>
       <div>
-        <Button type={'button'}>Dodaj novog korisnika</Button>
+        <Button open={props.addItem} type={'button'}>{props.addText}</Button>
       </div>
     </div>
   )

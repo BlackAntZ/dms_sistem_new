@@ -1,25 +1,72 @@
-.tags-div {
+.filter_div {
+  margin-top: 1.5rem;
+  border-radius: var(--border-radius-medium);
+  padding: 1rem 0.5rem 0.5rem;
+  border: 2px solid var(--color-gray-200);
+  position: relative;
+  max-width: 10rem;
+  height: fit-content;
+}
+
+.filter_label {
+  padding-inline: 0.5rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
   font-size: 1.2rem;
+  translate: -50% -50%;
+  background-color: var(--color-gray-50);
+}
+
+.filter_div form > div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.filter_div input {
+  width: 90%;
+}
+
+.tags-div {
+  position: relative;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.tags-div label {
+  cursor: pointer;
+}
+
+.tags-div > div:first-of-type {
+  width: 90%;
+  font-size: 1rem;
   border: 2px solid var(--color-gray-200);
   background-color: transparent;
   border-radius: var(--border-radius-small);
   padding: 0.2rem 0.5rem;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  position: relative;
   cursor: pointer;
-  min-width: 12rem;
+}
+
+.tags-div > div:first-of-type:hover {
+  border-color: var(--color-gray-300);
 }
 
 .tags-div > i {
-  margin-left: auto;
+  margin-right: auto;
 }
 
 .tags-container {
   position: absolute;
-  top: 2rem;
-  left: -2px;
-  width: calc(100% + 4px);
+  top: 3.5rem;
+  left: 5%;
+  width: 90%;
   max-height: 10rem;
   overflow-y: scroll;
   background-color: var(--color-gray-50);

@@ -4,38 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55f3408c-a7f4-4ad4-84da-063e7f616cf0" name="Changes" comment="'added tag tree'">
-      <change afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/AddEditUserTagModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/UI/Table/EntriesAndSearch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/UI/Table/EntriesAndSearch.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/login/AdditionalFieldsModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/login/AdditionalFieldsModal.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/users/UsersFilter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/users/UsersFilter.module.css" afterDir="false" />
+    <list default="true" id="55f3408c-a7f4-4ad4-84da-063e7f616cf0" name="Changes" comment="'rearranged tables, added additional registration data'">
+      <change afterPath="$PROJECT_DIR$/client/src/components/UI/DatePicker/DatePicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/UI/DatePicker/DatePicker.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/validation/input.validation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/util/user.validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Input/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Input/Input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Input/Input.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Input/Input.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/UI/Input/LoginInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Input/LoginInput.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/UI/Input/LoginInput.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Input/LoginInput.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/Templates/InputModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Templates/InputModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/Templates/InputModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/Templates/InputModal.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditTagsModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditTagsModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditTagsModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditTagsModal.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditUserModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Modal/User/EditUserModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UI/Table/EntriesAndSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Table/EntriesAndSearch.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/UI/Table/ItemTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Table/ItemTable.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/UI/Table/ItemTable.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Table/ItemTable.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/UI/Tooltip/ToolTip.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Tooltip/ToolTip.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/control-panel/DashBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/control-panel/DashBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/login/AdditionalFieldsModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/login/AdditionalFieldsModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/login/AdditionalFieldsModal.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/login/AdditionalFieldsModal.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/login/Login.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/login/Login.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/users/EntriesAndSearch.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/users/EntriesAndSearch.module.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/users/ListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/users/ListItem.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/users/ListItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/users/ListItem.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/users/PageButtons.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Table/PageButtons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/users/PageButtons.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UI/Table/PageButtons.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/users/UsersFilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/users/UsersFilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/users/UsersFilter.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/users/UsersFilter.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/users/UsersList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/users/UsersList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/users/UsersList.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/users/UsersList.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/admin.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/admin.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/main.controllers.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/main.controllers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/user.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/admin.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/admin.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/main-routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/main-routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +68,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/dejo/Desktop/100 days/25-Contract-Book-React&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dejo/Desktop/100 days/27-React-Sistem_New&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -99,7 +103,10 @@
       <workItem from="1663593529548" duration="2110000" />
       <workItem from="1663654881030" duration="20581000" />
       <workItem from="1663740642729" duration="23332000" />
-      <workItem from="1663826839249" duration="39992000" />
+      <workItem from="1663826839249" duration="40317000" />
+      <workItem from="1664172482333" duration="23552000" />
+      <workItem from="1664258996050" duration="23983000" />
+      <workItem from="1664345393933" duration="18820000" />
     </task>
     <task id="LOCAL-00001" summary="'added tag tree'">
       <created>1663844530294</created>
@@ -108,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663844530294</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="'rearranged tables, added additional registration data'">
+      <created>1663938058325</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1663938058325</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,7 +141,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="'added tag tree'" />
-    <option name="LAST_COMMIT_MESSAGE" value="'added tag tree'" />
+    <MESSAGE value="'rearranged tables, added additional registration data'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'rearranged tables, added additional registration data'" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

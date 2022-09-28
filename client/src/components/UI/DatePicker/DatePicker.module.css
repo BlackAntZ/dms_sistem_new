@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.date__picker {
+  position: absolute;
+  top: 2.5rem;
+  left: -2rem;
+  z-index: 5;
+}
+
+.date__picker__alt {
+  top: -19.5rem;
+  left: 0;
+}

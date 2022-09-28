@@ -4,83 +4,49 @@ import EntriesAndSearch from "./EntriesAndSearch";
 import PageButtons from "./PageButtons";
 
 const ItemTable = props => {
-  const [sortTerm, setSortTerm] = useState(null);
-  const [sortDir, setSortDir] = useState(null);
   const [statistics, setStatistics] = useState([]);
-  const [filteredItems, setFilteredItems] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [entries, setEntries] = useState('10');
-  const [selectedPage, setSelectedPage] = useState(1);
-  const [items, setItems] = useState(props.items);
 
-  //Function for sorting the table when the sort term inputted
-  const filterListBySearchTerm = useCallback((array) => {
-    const regexp = new RegExp(searchTerm, 'gi');
-    return array.filter(user => {
-      if (user.name.match(regexp) || user.last_name.match(regexp) || user.email.match(regexp)) return user;
-      return null;
-    });
-  },[searchTerm]);
+  const {setData} = props;
+  const {sortDir} = props;
+  const {sortTerm} = props;
+  const {items} = props;
 
   //Display the statistics of the presently displayed users—done
-  const shownUsersStatistics = useCallback((array, entries) => {
+  const shownUsersStatistics = useCallback( () => {
     const transformedData = [];
-    transformedData[0] = `${entries * (selectedPage - 1) + 1}`;
-    transformedData[1] = `${entries * selectedPage < array.length ? entries * selectedPage : array.length}`;
-    transformedData[2] = `${array.length}`;
+    transformedData[0] = `${props.entries * (props.selectedPage - 1) + 1}`;
+    transformedData[1] = `${props.entries * props.selectedPage < items.length ? props.entries * props.selectedPage : items.length}`;
+    transformedData[2] = `${items.length}`;
     setStatistics(transformedData);
-  },[selectedPage]);
-
-  //Fill the table with users and sort if the sort term inputted.
-  const fillItemsData = useCallback((array, data) => {
-    let list;
-    (data.searchTerm  ? data.searchTerm : searchTerm.length) === 0 ? list = array : list = filterListBySearchTerm(array);
-
-    shownUsersStatistics(list, data.entries ? data.entries : entries);
-    setFilteredItems(list);
-  },[entries, searchTerm, filterListBySearchTerm, shownUsersStatistics]);
+  },[props.selectedPage, props.entries, items]);
 
   useEffect(()=> {
-    fillItemsData(items, {});
-  },[])
-
-  //Sort users upon sort term selection - done
-  function sortItems (sortTerm, sortDir) {
-    setItems(prevState => {return prevState.sort((a,b) => {
-      return (a[sortTerm] > b[sortTerm]) ? -1 * sortDir : ((b[sortTerm] > a[sortTerm]) ? 1 * sortDir : 0);
-    })})
-  }
+    shownUsersStatistics();
+  },[shownUsersStatistics]);
 
   const sortTableHandler = ev => {
     let tempTerm = sortTerm, tempDir = sortDir;
     if (tempTerm !== ev.target.dataset.id) tempDir = undefined;
     tempTerm = ev.target.dataset.id;
     tempDir === 1 ? tempDir = -1 : tempDir = 1;
-    sortItems(tempTerm, tempDir);
-    setSortTerm(tempTerm);
-    setSortDir(tempDir);
+    setData('sort', {dir: tempDir, term: tempTerm});
   }
 
   const searchHandler = val => {
-    setSearchTerm(val);
-    fillItemsData(items, {searchTerm: val})
+    setData('search', val);
   }
 
   const selectEntriesHandler = entries => {
-    setEntries(entries);
-    props.onSelectEntries(entries);
-    setSelectedPage(1);
-    fillItemsData(items, {entries: entries});
+    setData('entries', entries);
   }
 
   const selectedPageHandler = number => {
-    props.onPageSelect(number);
-    setSelectedPage(number);
+    setData('page', number);
   }
 
   return (
     <div className={classes.container}>
-      <EntriesAndSearch onSearch={searchHandler} entriesSelect={selectEntriesHandler}></EntriesAndSearch>
+      <EntriesAndSearch onSearch={searchHandler} entriesSelect={selectEntriesHandler} addItem={props.addItem} addText={props.addText}></EntriesAndSearch>
       <div className={classes['table_div']}>
         <div className={classes['table_item']} style={{gridTemplateColumns: `repeat(${props.columns.length + 1},1fr)`}}>
           {props.columns.map(column => {
@@ -104,8 +70,7 @@ const ItemTable = props => {
           {props.children}
         </ul>
       </div>
-      {filteredItems && <PageButtons statistics={statistics} entries={entries} selectedPage={selectedPage} users={filteredItems}
-                                     onSelect={selectedPageHandler}></PageButtons>}
+      <PageButtons statistics={statistics} entries={props.entries} selectedPage={props.selectedPage} users={items} onSelect={selectedPageHandler}></PageButtons>
     </div>
   )
 }

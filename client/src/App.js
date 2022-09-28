@@ -40,7 +40,7 @@ function App() {
         <DashBoard></DashBoard>
       </section>}
       {openUsersPage && loggedIn && <section className={mainSectionClasses.value}>
-          <UsersList></UsersList>}
+        <UsersList></UsersList>
       </section>}
     </>
   )

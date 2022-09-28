@@ -10,16 +10,6 @@ async function getStartPage(req, res, next) {
   }
 }
 
-const editUserData = (req, res, next) => {
-  try{
-    console.log(req.body);
-    res.json('Dodano');
-  } catch (error) {
-    next(error);
-  }
-}
-
 module.exports = {
-  getStartPage: getStartPage,
-  editUserData: editUserData
+  getStartPage: getStartPage
 }
